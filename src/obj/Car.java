@@ -1,10 +1,11 @@
 package obj;
 
-public class Car extends Transport {
-    private double consumption = 9;
+public abstract class Car extends Transport {
+    private double consumption = 0;
     private double speed = 50;
 
-    public double getPrice(){
+    @Override
+    public double getPrice() {
         return 0;
     }
 }
