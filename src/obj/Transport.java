@@ -1,7 +1,7 @@
 package obj;
 
 public abstract class Transport {
-    private double consommation;
+    private double consumption;
     private double speed;
 
     public abstract double getPrice();
@@ -11,7 +11,7 @@ public abstract class Transport {
         return this.speed;
     }
 
-    public double getConsommation() {
-        return this.consommation;
+    public double getConsumption() {
+        return this.consumption;
     }
 }
