@@ -1,6 +1,6 @@
 package obj;
 
-public class Metro {
+public class Metro extends Transport {
     private double consumption = 792;
     private double speed = 40;
 
@@ -8,7 +8,7 @@ public class Metro {
         return 30;
     }
 
-    public double getEmission(){
-        return 0;
+    public double getEmission(double distance){
+        return super.getEmission(distance) / 250;
     }
 }
