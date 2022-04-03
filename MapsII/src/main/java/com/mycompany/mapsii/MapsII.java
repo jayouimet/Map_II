@@ -4,6 +4,8 @@
  */
 package com.mycompany.mapsii;
 
+import com.mycompany.mapsii.obj.Preference;
+
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +28,8 @@ public class MapsII extends javax.swing.JFrame {
      * Creates new form MapsII
      */
     public MapsII() {
-        
+
+        System.out.println(Preference.getInstance().test);
         initComponents();
         init();
         this.setTitle("Maps II Trajet");
