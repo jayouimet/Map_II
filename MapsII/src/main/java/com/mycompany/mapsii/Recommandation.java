@@ -19,6 +19,7 @@ public class Recommandation extends javax.swing.JFrame {
     public Recommandation() {
         initComponents();
         this.setTitle("Maps II Recommandations"); 
+        loadImage();
     }
     
     public Recommandation(String depart, String destination) {
@@ -28,6 +29,7 @@ public class Recommandation extends javax.swing.JFrame {
         txtDestination.setText(destination);
         txtDepart.setEditable(false);
         txtDestination.setEditable(false);
+        loadImage();
     }
     
     public void close(){
@@ -35,6 +37,20 @@ public class Recommandation extends javax.swing.JFrame {
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
 
+    public void loadImage() {
+        this.btnReturn.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/sideswipe.png"));
+        this.lblMap.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/Map1.png"));
+        
+        this.btnCar.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/city-car.png"));
+        this.btnBus.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/bus.png"));
+        this.btnMetro.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/subway.png"));
+        this.btnTaxi.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/Taxi.png"));
+        this.btnBike.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/bike.png"));
+        this.btnWalk.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/walking.png"));
+        
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,7 +81,7 @@ public class Recommandation extends javax.swing.JFrame {
         btnTaxi = new javax.swing.JButton();
         txtScore = new javax.swing.JTextField();
         btnMetro = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        lblMap = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -155,7 +171,7 @@ public class Recommandation extends javax.swing.JFrame {
                         .addComponent(txtDepart))
                     .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -163,7 +179,7 @@ public class Recommandation extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(103, 103, 103)
@@ -297,13 +313,13 @@ public class Recommandation extends javax.swing.JFrame {
     private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnTaxi;
     private javax.swing.JButton btnWalk;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblDistance;
     private javax.swing.JLabel lblDuration;
     private javax.swing.JLabel lblEmission;
     private javax.swing.JLabel lblEstimatedCosts;
+    private javax.swing.JLabel lblMap;
     private javax.swing.JLabel lblScore;
     private javax.swing.JTextField txtDepart;
     private javax.swing.JTextField txtDestination;
