@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.mapsii;
+package com.mycompany.mapsii.obj;
 
 /**
  *
  * @author Andre
  */
-public class Bicycle extends Transport {
+public class Walk extends Transport{
     
     private double price;
     private double emission;
     
-    public Bicycle(double consommation, double speed, double price, double emission){
+    public Walk(double consommation, double speed, double price, double emission){
         super(consommation,speed);
     }
     
@@ -24,4 +24,5 @@ public class Bicycle extends Transport {
     public double getEmission(){
         return this.emission; 
     }
+    
 }
