@@ -67,33 +67,33 @@
                               <Component id="txtDestination" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblEstimatedCosts" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lblDuration" alignment="0" max="32767" attributes="0"/>
                                       <Component id="lblDistance" alignment="0" max="32767" attributes="0"/>
                                       <Component id="lblEmission" alignment="0" max="32767" attributes="0"/>
                                       <Component id="lblScore" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField7" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtDuration" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtEstimatedCosts" alignment="0" max="32767" attributes="0"/>
                                       <Component id="txtScore" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
                                       <Component id="txtEmission" alignment="0" max="32767" attributes="0"/>
                                       <Component id="txtDistance" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jButton1" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="btnCar" min="-2" pref="36" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton4" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="btnBus" min="-2" pref="36" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton6" min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="btnMetro" min="-2" pref="33" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton5" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="btnTaxi" min="-2" pref="36" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton2" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="btnBike" min="-2" pref="39" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton3" min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="btnWalk" min="-2" pref="33" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtDepart" alignment="1" max="32767" attributes="0"/>
                           </Group>
@@ -122,17 +122,17 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jButton5" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="btnTaxi" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jButton4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jButton2" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
-                                                      <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="btnBus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="btnBike" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                                                      <Component id="btnCar" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="jButton3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnWalk" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -151,16 +151,16 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDuration" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtDuration" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblEstimatedCosts" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtEstimatedCosts" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="jButton6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnMetro" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -184,7 +184,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReturnActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="txtDuration">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField6"/>
               </Properties>
@@ -194,7 +194,7 @@
                 <Property name="text" type="java.lang.String" value="Adresse de d&#xe9;part"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="txtEstimatedCosts">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField7"/>
               </Properties>
@@ -209,43 +209,43 @@
                 <Property name="text" type="java.lang.String" value="Score (NomApp) :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnCar">
             </Component>
             <Component class="javax.swing.JLabel" name="lblEmission">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#xc9;mission de CO2 :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="btnBike">
             </Component>
             <Component class="javax.swing.JLabel" name="lblDistance">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Distance :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="btnWalk">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnWalkActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="lblDuration">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Dur&#xe9;e :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="btnBus">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBusActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="lblEstimatedCosts">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Co&#xfb;t estim&#xe9; :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="btnTaxi">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTaxiActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtScore">
@@ -253,7 +253,7 @@
                 <Property name="text" type="java.lang.String" value="jTextField3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JButton" name="btnMetro">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
             </Component>
