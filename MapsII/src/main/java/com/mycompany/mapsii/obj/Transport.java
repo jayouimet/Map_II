@@ -9,9 +9,13 @@ package com.mycompany.mapsii.obj;
  * @author Andre
  */
 public abstract class Transport {
-    private double consommation;
-    private double speed;
-    
+    protected double consommation;
+    protected double speed;
+
+    public Transport() {
+
+    }
+
     public Transport(double consommation, double speed){
         this.consommation = consommation;
         this.speed = speed;
@@ -24,9 +28,12 @@ public abstract class Transport {
     public double getSpeed(){
         return speed;
     }
+
+    public double getPrice(double distance) {
+        return distance * consommation / 100 * 1.75;
+    };
     
-    public abstract double getPrice();
-    
-    public abstract double getEmission();
-      
+    public double getEmission(double distance) {
+        return distance * consommation * 2.3;
+    };
 }

@@ -9,20 +9,18 @@ package com.mycompany.mapsii.obj;
  * @author Andre
  */
 public class Walk extends Transport{
-    
-    private double price;
-    private double emission;
-    
-    public Walk(double consommation, double speed, double price, double emission){
-        super(consommation,speed);
+    public Walk() {
+        this.consommation = 0;
+        this.speed = 6;
     }
-    
-    public double getPrice(){
-        return this.price; 
+
+    @Override
+    public double getPrice(double distance){
+        return 0;
     }
-    
-    public double getEmission(){
-        return this.emission; 
+
+    @Override
+    public double getEmission(double distance){
+        return 0;
     }
-    
 }

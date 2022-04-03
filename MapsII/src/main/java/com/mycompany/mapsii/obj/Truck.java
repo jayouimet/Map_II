@@ -9,9 +9,7 @@ package com.mycompany.mapsii.obj;
  * @author Andre
  */
 public class Truck extends Car{
-    
-    public Truck(double consommation, double speed, double price, double emission){
-        super(consommation,speed,price,emission);
+    public Truck(){
+        this.consommation = 33;
     }
-    
 }

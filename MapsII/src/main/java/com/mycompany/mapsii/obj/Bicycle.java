@@ -9,19 +9,18 @@ package com.mycompany.mapsii.obj;
  * @author Andre
  */
 public class Bicycle extends Transport {
-    
-    private double price;
-    private double emission;
-    
-    public Bicycle(double consommation, double speed, double price, double emission){
-        super(consommation,speed);
+    public Bicycle() {
+        this.consommation = 0;
+        this.speed = 20;
+    };
+
+    @Override
+    public double getPrice(double distance){
+        return 0;
     }
-    
-    public double getPrice(){
-        return this.price; 
-    }
-    
-    public double getEmission(){
-        return this.emission; 
+
+    @Override
+    public double getEmission(double distance){
+        return 0;
     }
 }

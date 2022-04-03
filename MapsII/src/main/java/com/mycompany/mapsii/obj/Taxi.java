@@ -9,20 +9,8 @@ package com.mycompany.mapsii.obj;
  * @author Andre
  */
 public class Taxi extends Transport {
-    
-    private double price;
-    private double emission;
-    
-    public Taxi(double consommation, double speed, double price, double emission){
-        super(consommation,speed);
+    public Taxi() {
+        this.consommation = 12;
+        this.speed = 50;
     }
-    
-    public double getPrice(){
-        return this.price; 
-    }
-    
-    public double getEmission(){
-        return this.emission; 
-    }
-    
 }

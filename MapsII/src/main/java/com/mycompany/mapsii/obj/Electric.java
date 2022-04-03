@@ -9,9 +9,7 @@ package com.mycompany.mapsii.obj;
  * @author Andre
  */
 public class Electric extends Car{
-    
-     public Electric(double consommation, double speed, double price, double emission){
-        super(consommation,speed,price,emission);
+    public Electric() {
+        this.consommation = 0;
     }
-    
 }

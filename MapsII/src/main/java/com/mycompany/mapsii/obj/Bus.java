@@ -9,20 +9,18 @@ package com.mycompany.mapsii.obj;
  * @author Andre
  */
 public class Bus extends Transport {
-    
-    private double price;
-    private double emission;
-    
-    public Bus(double consommation, double speed, double price, double emission){
-        super(consommation,speed);
+    public Bus() {
+        this.consommation = 6.2;
+        this.speed = 50;
     }
-    
-    public double getPrice(){
-        return this.price; 
+
+    @Override
+    public double getPrice(double distance){
+        return 4.75;
     }
-    
-    public double getEmission(){
-        return this.emission; 
+
+    @Override
+    public double getEmission(double distance){
+        return super.getEmission(distance) / 40;
     }
-    
 }

@@ -9,9 +9,7 @@ package com.mycompany.mapsii.obj;
  * @author Andre
  */
 public class SUV extends Car{
-    
-    public SUV(double consommation, double speed, double price, double emission){
-        super(consommation,speed,price,emission);
+    public SUV(){
+        this.consommation = 17;
     }
-    
 }

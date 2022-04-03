@@ -9,9 +9,7 @@ package com.mycompany.mapsii.obj;
  * @author Andre
  */
 public class Hybrib extends Car{
-    
-    public Hybrib(double consommation, double speed, double price, double emission){
-        super(consommation,speed,price,emission);
+    public Hybrib() {
+        this.consommation = 6;
     }
-    
 }
