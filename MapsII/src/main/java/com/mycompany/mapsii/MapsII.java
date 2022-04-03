@@ -5,7 +5,10 @@
 package com.mycompany.mapsii;
 
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.util.List;
 
 /**
  *
@@ -13,13 +16,68 @@ import java.awt.event.WindowEvent;
  */
 public class MapsII extends javax.swing.JFrame {
 
+    private String[] choices = { "Maison", "Travail", "Université", "Cinéma", "Aéroport", "Costco", "Dépanneur", "Bibliothèque" };
+    private String selectedDepart = null;
+    private String selectedDestination = null;
+    
     /**
      * Creates new form MapsII
      */
     public MapsII() {
-      
+        
         initComponents();
-        this.setTitle("Maps II Trajet");         
+        init();
+        this.setTitle("Maps II Trajet");
+        this.btnItineraire.setEnabled(false);
+    }
+    
+    private void init() {
+        for (String c: choices) {
+            cboDepart.addItem(c);
+            cboDestination.addItem(c);
+        }
+        cboDepart.setSelectedItem(null);
+        cboDestination.setSelectedItem(null);
+
+        cboDepart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cboDestination.getSelectedItem() != null)
+                    selectedDestination = cboDestination.getSelectedItem().toString();
+
+                cboDestination.removeAllItems();
+                for (String c: choices) {
+                    if (!c.equals(cboDepart.getSelectedItem())) {
+                        cboDestination.addItem(c);
+                    }
+                }
+                cboDestination.setSelectedItem(selectedDestination);
+
+                btnItineraire.setEnabled(
+                        cboDestination.getSelectedItem() != null && cboDepart.getSelectedItem() != null
+                );
+            }
+        });
+
+        cboDestination.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cboDepart.getSelectedItem() != null)
+                    selectedDepart = cboDepart.getSelectedItem().toString();;
+
+                cboDepart.removeAllItems();
+                for (String c: choices) {
+                    if (!c.equals(cboDestination.getSelectedItem())) {
+                        cboDepart.addItem(c);
+                    }
+                }
+                cboDepart.setSelectedItem(selectedDepart);
+
+                btnItineraire.setEnabled(
+                        cboDestination.getSelectedItem() != null && cboDepart.getSelectedItem() != null
+                );
+            }
+        });
     }
     
      public void close(){
