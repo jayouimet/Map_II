@@ -1,9 +1,13 @@
 import javax.swing.*;
 
 public class MainLayout extends JFrame {
+    private JPanel mainPanel;
+    private JButton préférenceButton;
+    private JButton itinéraireButton;
+    private JButton button3;
     private JTextField textField1;
     private JTextField textField2;
-    private JPanel mainPanel;
+    private JTextField textField3;
 
     public MainLayout() {
         setContentPane(mainPanel);
@@ -14,6 +18,7 @@ public class MainLayout extends JFrame {
     }
 
     public static void main(String[] args) {
+
         MainLayout mainLayout = new MainLayout();
     }
 }
