@@ -41,25 +41,25 @@ public class Preferences extends javax.swing.JFrame {
         // 1. Generate combo box content
         // 1.1 set combobox measurment
         try {
-            cboMeasurment.setModel(new DefaultComboBoxModel(Preference.getOptionsMeasure()));
+            cboMeasurment.setModel(new DefaultComboBoxModel<String>(Preference.getOptionsMeasure()));
         } catch (Exception e) {
-            cboMeasurment.setModel(new DefaultComboBoxModel(def));
+            cboMeasurment.setModel(new DefaultComboBoxModel<String>(def));
         }
 
         // 1.2 set combobox background color
         try {
-            cboBackground.setModel(new DefaultComboBoxModel(Preference.getOptionsColor()));
+            cboBackground.setModel(new DefaultComboBoxModel<String>(Preference.getOptionsColor()));
         } catch (Exception e) {
-            cboBackground.setModel(new DefaultComboBoxModel(def));
+            cboBackground.setModel(new DefaultComboBoxModel<String>(def));
         }
 
         // 1.3 set combobox car type
         String[] carTypes = null;
         try {
             carTypes = Arrays.stream(CarEnum.class.getEnumConstants()).map(Enum::name).toArray(String[]::new);
-            cboCarType.setModel(new DefaultComboBoxModel(carTypes));
+            cboCarType.setModel(new DefaultComboBoxModel<String>(carTypes));
         } catch (Exception e) {
-            cboCarType.setModel(new DefaultComboBoxModel(def));
+            cboCarType.setModel(new DefaultComboBoxModel<String>(def));
         }
 
         // 2. Display selected value
@@ -85,7 +85,7 @@ public class Preferences extends javax.swing.JFrame {
 
         // 2.4 Select type car
         try {
-            for (int i = 0; i < carTypes.length; i++) {
+            for (int i = 0; i < Objects.requireNonNull(carTypes).length; i++) {
                 if (Objects.equals(carTypes[i], Preference.getInstance().typeVoiture)) {
                     cboCarType.setSelectedIndex(i);
                 }
@@ -106,7 +106,7 @@ public class Preferences extends javax.swing.JFrame {
         String json = "";
 
         try {
-            json = readFileAsString(file).replace("\n", "");
+            json = readFileAsString(file);
         } catch (Exception e) {
             System.out.println(e);
         }
