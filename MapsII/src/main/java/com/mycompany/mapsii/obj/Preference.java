@@ -1,13 +1,13 @@
 package com.mycompany.mapsii.obj;
 
+import com.mycompany.mapsii.obj.Enums.CarEnum;
+
 public class Preference {
     private static String[] mesuresDistance = {"KM", "Miles"};
-    private static String[] typesVoiture = {"SUV", "Electric"};
     private static String[] couleursFond = {"Gray", "White"};
 
-    public static String[] getOptionsMesure() { return mesuresDistance; }
-    public static String[] getCouleursFond() { return couleursFond; }
-    public static String[] getTypesVoiture() { return typesVoiture; }
+    public static String[] getOptionsMeasure() { return mesuresDistance; }
+    public static String[] getOptionsColor() { return couleursFond; }
 
     private static Preference instance = null;
 
