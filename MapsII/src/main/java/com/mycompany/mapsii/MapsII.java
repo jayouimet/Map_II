@@ -4,12 +4,15 @@
  */
 package com.mycompany.mapsii;
 
+import com.mycompany.mapsii.obj.Engine;
+import com.mycompany.mapsii.obj.Location;
 import com.mycompany.mapsii.obj.Preference;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
 
@@ -19,9 +22,10 @@ import javax.swing.ImageIcon;
  * @author Andre
  */
 public class MapsII extends javax.swing.JFrame {
-
+    private Engine engine;
+    
     private String pathImg = "src/main/java/com/mycompany/mapsii/img/";
-    private String[] choices = { "Maison", "Travail", "Université", "Cinéma", "Aéroport", "Costco", "Dépanneur", "Bibliothèque" };
+    private List<Location> choices;
     private String selectedDepart = null;
     private String selectedDestination = null;
     
@@ -31,6 +35,8 @@ public class MapsII extends javax.swing.JFrame {
     public MapsII() {
         System.out.println(Preference.getInstance());
         initComponents();
+        this.engine = new Engine();
+        this.choices = engine.getLocations();
         init();
         this.setTitle("Maps II Trajet");
         this.btnItineraire.setEnabled(false);
@@ -38,9 +44,9 @@ public class MapsII extends javax.swing.JFrame {
     }
     
     private void init() {
-        for (String c: choices) {
-            cboDepart.addItem(c);
-            cboDestination.addItem(c);
+        for (Location c: choices) {
+            cboDepart.addItem(c.getName());
+            cboDestination.addItem(c.getName());
         }
         cboDepart.setSelectedItem(null);
         cboDestination.setSelectedItem(null);
@@ -52,9 +58,9 @@ public class MapsII extends javax.swing.JFrame {
                     selectedDestination = cboDestination.getSelectedItem().toString();
 
                 cboDestination.removeAllItems();
-                for (String c: choices) {
-                    if (!c.equals(cboDepart.getSelectedItem())) {
-                        cboDestination.addItem(c);
+                for (Location c: choices) {
+                    if (!c.getName().equals(cboDepart.getSelectedItem())) {
+                        cboDestination.addItem(c.getName());
                     }
                 }
                 cboDestination.setSelectedItem(selectedDestination);
@@ -72,9 +78,9 @@ public class MapsII extends javax.swing.JFrame {
                     selectedDepart = cboDepart.getSelectedItem().toString();;
 
                 cboDepart.removeAllItems();
-                for (String c: choices) {
-                    if (!c.equals(cboDestination.getSelectedItem())) {
-                        cboDepart.addItem(c);
+                for (Location c: choices) {
+                    if (!c.getName().equals(cboDestination.getSelectedItem())) {
+                        cboDepart.addItem(c.getName());
                     }
                 }
                 cboDepart.setSelectedItem(selectedDepart);
@@ -132,14 +138,11 @@ public class MapsII extends javax.swing.JFrame {
             }
         });
 
-        cboDepart.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maison", "Travail", "Université", "Cinéma", "Aéroport", "Costco", "Dépanneur", "Bibliothèque" }));
         cboDepart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboDepartActionPerformed(evt);
             }
         });
-
-        cboDestination.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maison", "Travail", "Université", "Cinéma", "Aéroport", "Costco", "Dépanneur", "Bibliothèque" }));
 
         jLabel2.setText("Depart");
 
@@ -205,7 +208,25 @@ public class MapsII extends javax.swing.JFrame {
         close();
         String depart = cboDepart.getSelectedItem().toString();
         String destination = cboDestination.getSelectedItem().toString();
-        Recommandation pi = new Recommandation(depart,destination);
+        List<Location> locations = new ArrayList<Location>();
+        
+        for (Location l: engine.getLocations()) {
+            if (l.getName() == depart) {
+                locations.add(l);
+                break;
+            }
+        }
+        
+        for (Location l: engine.getLocations()) {
+            if (l.getName() == destination) {
+                locations.add(l);
+                break;
+            }
+        }
+        
+        engine.generateParcours(locations);
+        
+        Recommandation pi = new Recommandation(depart, destination, engine);
         pi.setVisible(true);
     }//GEN-LAST:event_btnItineraireActionPerformed
 

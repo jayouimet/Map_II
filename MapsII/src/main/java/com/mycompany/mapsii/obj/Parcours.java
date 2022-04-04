@@ -2,6 +2,7 @@ package com.mycompany.mapsii.obj;
 
 import com.mycompany.mapsii.obj.Enums.TransportEnum;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,8 @@ public class Parcours {
     private Map<TransportEnum, Trajet> trajets;
 
     public Parcours(List<Location> locations) {
+        trajets = new HashMap<>();
+        
         for (TransportEnum transport: transports) {
             trajets.put(transport, new Trajet(locations, transport));
         }

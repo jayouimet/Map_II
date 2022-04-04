@@ -1,11 +1,14 @@
 package com.mycompany.mapsii.obj;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Engine {
     private List<Location> locations;
+    private Parcours parcours;
 
     public Engine() {
+        locations = new ArrayList<>();
         locations.add(new Location("Maison", 45.866094, -74.0527048));
         locations.add(new Location("Travail", 45.4919109, -73.6164942));
         locations.add(new Location("Université", 45.7748878, -74.0034434));
@@ -20,7 +23,11 @@ public class Engine {
         return locations;
     }
 
-    public Parcours generateParcours(List<Location> locations) {
-        return new Parcours(locations);
+    public void generateParcours(List<Location> locations) {
+        parcours = new Parcours(locations);
+    }
+
+    public Parcours getParcours() {
+        return parcours;
     }
 }

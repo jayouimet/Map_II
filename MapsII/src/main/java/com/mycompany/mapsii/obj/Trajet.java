@@ -1,6 +1,7 @@
 package com.mycompany.mapsii.obj;
 
 import com.mycompany.mapsii.obj.Enums.TransportEnum;
+import java.util.ArrayList;
 
 import java.util.List;
 
@@ -12,6 +13,8 @@ public class Trajet {
 
         Location previousLoc = locations.get(0);
 
+        sections = new ArrayList<Section>();
+        
         for (int i = 1; i < locations.size(); i++) {
             sections.add(new Section(previousLoc.getDistance(locations.get(i)), transport));
         }

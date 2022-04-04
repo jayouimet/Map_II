@@ -7,6 +7,7 @@ package com.mycompany.mapsii;
 import com.mycompany.mapsii.obj.Bicycle;
 import com.mycompany.mapsii.obj.Bus;
 import com.mycompany.mapsii.obj.Car;
+import com.mycompany.mapsii.obj.Engine;
 import com.mycompany.mapsii.obj.Location;
 import com.mycompany.mapsii.obj.Metro;
 import com.mycompany.mapsii.obj.Taxi;
@@ -20,7 +21,7 @@ import java.awt.event.WindowEvent;
  * @author Andre
  */
 public class Recommandation extends javax.swing.JFrame {
-
+    private Engine engine;
     private String pathImg = "src/main/java/com/mycompany/mapsii/img/";
     
     /**
@@ -35,9 +36,10 @@ public class Recommandation extends javax.swing.JFrame {
         loadImage();
     }
     
-    public Recommandation(String depart, String destination) {
+    public Recommandation(String depart, String destination, Engine engine) {
         initComponents();
         this.setTitle("Maps II Recommandations"); 
+        this.engine = engine;
         txtDepart.setText(depart);
         txtDestination.setText(destination);
         txtDepart.setEditable(false);
