@@ -1,6 +1,7 @@
 package com.mycompany.mapsii.obj;
 
-import java.util.ArrayList;
+import com.mycompany.mapsii.obj.Enums.TransportEnum;
+
 import java.util.List;
 
 public class Parcours {

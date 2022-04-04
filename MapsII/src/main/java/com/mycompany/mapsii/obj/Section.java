@@ -1,5 +1,7 @@
 package com.mycompany.mapsii.obj;
 
+import com.mycompany.mapsii.obj.Enums.TransportEnum;
+
 public class Section {
     private double distance;
     private Transport transport;

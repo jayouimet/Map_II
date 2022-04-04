@@ -1,5 +1,7 @@
 package com.mycompany.mapsii.obj;
 
+import com.mycompany.mapsii.obj.Enums.TransportEnum;
+
 import java.util.List;
 
 public class Trajet {
