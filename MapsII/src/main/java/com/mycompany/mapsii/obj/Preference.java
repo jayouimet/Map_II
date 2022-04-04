@@ -13,7 +13,7 @@ public class Preference {
 
     public String variableDominante;
     public int mesureDistance;
-    public int typeVoiture;
+    public String typeVoiture;
 
     public int couleurFond;
 
@@ -30,7 +30,7 @@ public class Preference {
     }
 
     public CarEnum getCarType(){
-        return CarEnum.values()[typeVoiture];
+        return CarEnum.valueOf(typeVoiture);
     }
 
     @Override
