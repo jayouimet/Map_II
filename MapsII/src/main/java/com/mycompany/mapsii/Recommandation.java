@@ -48,19 +48,18 @@ public class Recommandation extends javax.swing.JFrame {
         locArrive = createLocation(destination);
         
         Car vehicule = new Car();
-    
-        setAffichage(locDepart,locArrive,vehicule);
-        
+        setAffichage(locDepart,locArrive,vehicule); 
+        btnCar.setFocusPainted(true);
     }
     
     public void setAffichage(Location depart, Location arriver, Transport vehicule){
         Double distance = depart.getDistance(arriver);
         
         txtScore.setText(String.valueOf(0));
-        txtDistance.setText(String.valueOf(distance));
-        txtEmission.setText(String.valueOf(vehicule.getEmission(distance)));
-        txtDuration.setText(String.valueOf(vehicule.getSpeed()));
-        txtEstimatedCosts.setText(String.valueOf(vehicule.getPrice(distance)));
+        txtDistance.setText(String.format("%.2f",(distance))+" km");
+        txtEmission.setText(String.format("%.2f", vehicule.getEmission(distance))+" g/km");
+        txtDuration.setText(String.format("%.2f", vehicule.getSpeed()));
+        txtEstimatedCosts.setText(String.format("%.2f",vehicule.getPrice(distance))+"$");
     }
     
      public Location createLocation(String nom){
