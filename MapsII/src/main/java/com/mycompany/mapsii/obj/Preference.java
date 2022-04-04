@@ -14,6 +14,7 @@ public class Preference {
     public String variableDominante;
     public int mesureDistance;
     public int typeVoiture;
+
     public int couleurFond;
 
     private Preference(){}
@@ -26,6 +27,10 @@ public class Preference {
         if(instance == null) { instance = new Preference(); }
 
         return instance;
+    }
+
+    public CarEnum getCarType(){
+        return CarEnum.values()[typeVoiture];
     }
 
     @Override
