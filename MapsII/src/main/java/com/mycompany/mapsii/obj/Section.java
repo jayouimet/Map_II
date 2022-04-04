@@ -26,7 +26,7 @@ public class Section {
                 transport = new Taxi();
                 break;
             case Car:
-
+                Preference pref = Preference.getInstance();
                 break;
         }
     }
