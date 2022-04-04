@@ -4,6 +4,14 @@
  */
 package com.mycompany.mapsii;
 
+import com.mycompany.mapsii.obj.Bicycle;
+import com.mycompany.mapsii.obj.Bus;
+import com.mycompany.mapsii.obj.Car;
+import com.mycompany.mapsii.obj.Location;
+import com.mycompany.mapsii.obj.Metro;
+import com.mycompany.mapsii.obj.Taxi;
+import com.mycompany.mapsii.obj.Transport;
+import com.mycompany.mapsii.obj.Walk;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 
@@ -18,6 +26,9 @@ public class Recommandation extends javax.swing.JFrame {
     /**
      * Creates new form Recommandation
      */
+    static Location locDepart;
+    static Location locArrive;
+    
     public Recommandation() {
         initComponents();
         this.setTitle("Maps II Recommandations"); 
@@ -32,6 +43,63 @@ public class Recommandation extends javax.swing.JFrame {
         txtDepart.setEditable(false);
         txtDestination.setEditable(false);
         loadImage();
+            
+        locDepart = createLocation(depart);
+        locArrive = createLocation(destination);
+        
+        Car vehicule = new Car();
+    
+        setAffichage(locDepart,locArrive,vehicule);
+        
+    }
+    
+    public void setAffichage(Location depart, Location arriver, Transport vehicule){
+        Double distance = depart.getDistance(arriver);
+        
+        txtScore.setText(String.valueOf(0));
+        txtDistance.setText(String.valueOf(distance));
+        txtEmission.setText(String.valueOf(vehicule.getEmission(distance)));
+        txtDuration.setText(String.valueOf(vehicule.getSpeed()));
+        txtEstimatedCosts.setText(String.valueOf(vehicule.getPrice(distance)));
+    }
+    
+     public Location createLocation(String nom){
+        Location location = new Location("",0,0);
+        switch(nom){
+            case "Maison":
+                location = new Location("Maison",0,0);
+                break;
+            case "Bibliothèque":
+                location = new Location("Bibliothèque",1,1);
+                break;
+            case "Université":
+                location = new Location("Université",25,25);
+                break;
+            case "Travail":
+                location = new Location("Travail",30,23);
+                break;
+            case "Cinéma":
+                location = new Location("Cinéma",20,2);
+                break;
+            case "Aéroport":
+                location = new Location("Aéroport",25,-25);
+                break;
+            case "Dépanneur":
+                location = new Location("Dépanneur",0,-1);
+                break;
+            case "Gare":
+                location = new Location("Gare",-2,-2);
+                break;
+            case "Costco":
+                location = new Location("Costco",-5,-10);
+                break;
+            case "Chalet des Érables":
+                location = new Location("Chalet des Érables",13,10);
+                break;
+            default:
+                break;
+        }
+        return location;
     }
     
     public void close(){
@@ -107,7 +175,19 @@ public class Recommandation extends javax.swing.JFrame {
 
         lblScore.setText("Score (NomApp) :");
 
+        btnCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarActionPerformed(evt);
+            }
+        });
+
         lblEmission.setText("Émission de CO2 :");
+
+        btnBike.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBikeActionPerformed(evt);
+            }
+        });
 
         lblDistance.setText("Distance :");
 
@@ -134,6 +214,12 @@ public class Recommandation extends javax.swing.JFrame {
         });
 
         txtScore.setText("jTextField3");
+
+        btnMetro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMetroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -261,16 +347,34 @@ public class Recommandation extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void btnWalkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWalkActionPerformed
-        // TODO add your handling code here:
+        Walk vehicule = new Walk();
+        setAffichage(locDepart,locArrive, vehicule);
     }//GEN-LAST:event_btnWalkActionPerformed
 
     private void btnBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusActionPerformed
-        // TODO add your handling code here:
+        Bus vehicule = new Bus();
+        setAffichage(locDepart,locArrive, vehicule);
     }//GEN-LAST:event_btnBusActionPerformed
 
     private void btnTaxiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaxiActionPerformed
-        // TODO add your handling code here:
+        Taxi vehicule = new Taxi();
+        setAffichage(locDepart,locArrive, vehicule);
     }//GEN-LAST:event_btnTaxiActionPerformed
+
+    private void btnCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarActionPerformed
+        Car vehicule = new Car();
+        setAffichage(locDepart,locArrive, vehicule);                
+    }//GEN-LAST:event_btnCarActionPerformed
+
+    private void btnMetroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetroActionPerformed
+       Metro vehicule = new Metro();
+       setAffichage(locDepart,locArrive, vehicule);
+    }//GEN-LAST:event_btnMetroActionPerformed
+
+    private void btnBikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBikeActionPerformed
+        Bicycle vehicule = new Bicycle();
+        setAffichage(locDepart,locArrive, vehicule);
+    }//GEN-LAST:event_btnBikeActionPerformed
 
     /**
      * @param args the command line arguments

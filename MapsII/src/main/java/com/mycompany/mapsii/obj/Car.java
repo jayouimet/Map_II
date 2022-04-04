@@ -10,7 +10,7 @@ package com.mycompany.mapsii.obj;
  */
 public class Car extends Transport {
     public Car() {
-        this.consommation = 0;
+        this.consommation = 9;
         this.speed = 50;
     }
 }
