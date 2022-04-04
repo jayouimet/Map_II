@@ -13,6 +13,8 @@ import java.awt.event.WindowEvent;
  */
 public class Recommandation extends javax.swing.JFrame {
 
+    private String pathImg = "src/main/java/com/mycompany/mapsii/img/";
+    
     /**
      * Creates new form Recommandation
      */
@@ -38,15 +40,15 @@ public class Recommandation extends javax.swing.JFrame {
     }
 
     public void loadImage() {
-        this.btnReturn.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/sideswipe.png"));
-        this.lblMap.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/Map1.png"));
+        this.btnReturn.setIcon(new javax.swing.ImageIcon(pathImg + "sideswipe.png"));
+        this.lblMap.setIcon(new javax.swing.ImageIcon(pathImg + "Map1.png"));
         
-        this.btnCar.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/city-car.png"));
-        this.btnBus.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/bus.png"));
-        this.btnMetro.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/subway.png"));
-        this.btnTaxi.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/Taxi.png"));
-        this.btnBike.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/bike.png"));
-        this.btnWalk.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mapsii/resources/walking.png"));
+        this.btnCar.setIcon(new javax.swing.ImageIcon(pathImg + "city-car.png"));
+        this.btnBus.setIcon(new javax.swing.ImageIcon(pathImg + "bus.png"));
+        this.btnMetro.setIcon(new javax.swing.ImageIcon(pathImg + "subway.png"));
+        this.btnTaxi.setIcon(new javax.swing.ImageIcon(pathImg + "Taxi.png"));
+        this.btnBike.setIcon(new javax.swing.ImageIcon(pathImg + "bike.png"));
+        this.btnWalk.setIcon(new javax.swing.ImageIcon(pathImg + "walking.png"));
         
     }
     

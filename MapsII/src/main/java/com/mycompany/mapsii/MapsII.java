@@ -20,6 +20,7 @@ import javax.swing.ImageIcon;
  */
 public class MapsII extends javax.swing.JFrame {
 
+    private String pathImg = "src/main/java/com/mycompany/mapsii/img/";
     private String[] choices = { "Maison", "Travail", "Université", "Cinéma", "Aéroport", "Costco", "Dépanneur", "Bibliothèque" };
     private String selectedDepart = null;
     private String selectedDestination = null;
@@ -93,8 +94,8 @@ public class MapsII extends javax.swing.JFrame {
 
      
     public void loadImage() {
-        this.btnConfig.setIcon(new ImageIcon("src/main/java/com/mycompany/mapsii/resources/Roue.png"));
-        this.lblMap.setIcon(new ImageIcon("src/main/java/com/mycompany/mapsii/resources/Map1.png"));
+        this.btnConfig.setIcon(new ImageIcon(pathImg + "Roue.png"));
+        this.lblMap.setIcon(new ImageIcon(pathImg + "Map1.png"));
     }
     /**
      * This method is called from within the constructor to initialize the form.
