@@ -8,8 +8,8 @@ package com.mycompany.mapsii.obj;
  *
  * @author Andre
  */
-public class Hybrib extends Car{
-    public Hybrib() {
+public class Hybrid extends Car{
+    public Hybrid() {
         this.consommation = 6;
     }
 }

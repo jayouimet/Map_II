@@ -1,5 +1,6 @@
 package com.mycompany.mapsii.obj;
 
+import com.mycompany.mapsii.obj.Enums.CarEnum;
 import com.mycompany.mapsii.obj.Enums.TransportEnum;
 
 public class Section {
@@ -27,6 +28,23 @@ public class Section {
                 break;
             case Car:
                 Preference pref = Preference.getInstance();
+                switch(pref.getCarType()) {
+                    case Electric:
+                        transport = new Electric();
+                        break;
+                    case Hybrid:
+                        transport = new Hybrid();
+                        break;
+                    case Truck:
+                        transport = new Truck();
+                        break;
+                    case SUV:
+                        transport = new SUV();
+                        break;
+                }
+                break;
+            default:
+                transport = new Walk();
                 break;
         }
     }
