@@ -4,6 +4,7 @@
  */
 package com.mycompany.mapsii;
 
+import com.google.gson.Gson;
 import com.mycompany.mapsii.obj.Engine;
 import com.mycompany.mapsii.obj.Location;
 import com.mycompany.mapsii.obj.Preference;
@@ -12,6 +13,10 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -22,6 +27,8 @@ import javax.swing.ImageIcon;
  * @author Andre
  */
 public class MapsII extends javax.swing.JFrame {
+    public static String pathToHere = "src/main/java/com/mycompany/mapsii/";
+
     private Engine engine;
     
     private String pathImg = "src/main/java/com/mycompany/mapsii/img/";
@@ -44,6 +51,8 @@ public class MapsII extends javax.swing.JFrame {
     }
     
     private void init() {
+        initConfig();
+
         for (Location c: choices) {
             cboDepart.addItem(c.getName());
             cboDestination.addItem(c.getName());
@@ -90,6 +99,24 @@ public class MapsII extends javax.swing.JFrame {
                 );
             }
         });
+    }
+
+    private void initConfig() {
+        Preference.setInstance(readConfigFile());
+    }
+
+    private Preference readConfigFile() {
+        Gson g = new Gson();
+        String file = new File(pathToHere + "/config.json").getAbsolutePath();
+
+        try {
+            Preference pref = g.fromJson(new FileReader(file), Preference.class);
+            return pref;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return null;
     }
     
      public void close(){

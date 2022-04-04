@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9287ac1e-09a5-42f6-a90e-7d52e23729c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/MapsII.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/MapsII.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/Preferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/Preferences.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +48,7 @@
       <recent name="D:\Documents\Homework UNI\Session 2\INF-1643\Map_II\MapsII\src\main\java\com\mycompany\mapsii\obj" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Preferences">
+  <component name="RunManager" selected="Application.MapsII">
     <configuration name="MapsII" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mycompany.mapsii.MapsII" />
       <module name="MapsII" />
@@ -93,8 +94,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Preferences" />
         <item itemvalue="Application.MapsII" />
+        <item itemvalue="Application.Preferences" />
       </list>
     </recent_temporary>
   </component>
@@ -119,9 +120,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MapsII$MapsII.ic" NAME="MapsII Coverage Results" MODIFIED="1649031651209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/MapsII$MapsII.ic" NAME="MapsII Coverage Results" MODIFIED="1649090391418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.mycompany.mapsii.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/MapsII$Preferences.ic" NAME="Preferences Coverage Results" MODIFIED="1649038618255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

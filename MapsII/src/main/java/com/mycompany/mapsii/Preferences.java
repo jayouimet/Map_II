@@ -12,10 +12,7 @@ import com.mycompany.mapsii.obj.Preference;
 import javax.swing.*;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
-import java.io.File;
 import java.io.FileWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.Objects;
@@ -24,14 +21,11 @@ import java.util.Objects;
  * @author Francis
  */
 public class Preferences extends javax.swing.JFrame {
-    private String pathConfig = "src/main/java/com/mycompany/mapsii/config.json";
-
     /**
      * Creates new form Preferences
      */
     public Preferences() {
         initComponents();
-        initConfig();
         initDisplay();
         this.setTitle("Préferences");
     }
@@ -83,7 +77,7 @@ public class Preferences extends javax.swing.JFrame {
             cboBackground.setSelectedIndex(0);
         }
 
-        // 2.4 Select type car
+        // 2.4 Select car type
         try {
             for (int i = 0; i < Objects.requireNonNull(carTypes).length; i++) {
                 if (Objects.equals(carTypes[i], Preference.getInstance().typeVoiture)) {
@@ -93,29 +87,6 @@ public class Preferences extends javax.swing.JFrame {
         } catch (Exception e) {
             cboCarType.setSelectedIndex(0);
         }
-    }
-
-    private void initConfig() {
-        Preference.setInstance(readConfigFile());
-    }
-
-    private Preference readConfigFile() {
-        Gson g = new Gson();
-
-        String file = new File(pathConfig).getAbsolutePath();
-        String json = "";
-
-        try {
-            json = readFileAsString(file);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        return g.fromJson(json, Preference.class);
-    }
-
-    public String readFileAsString(String file) throws Exception {
-        return new String(Files.readAllBytes(Paths.get(file)));
     }
 
     public void close() {
@@ -306,7 +277,7 @@ public class Preferences extends javax.swing.JFrame {
 
         Gson g = new GsonBuilder().setPrettyPrinting().create();
         try {
-            FileWriter writer = new FileWriter(pathConfig);
+            FileWriter writer = new FileWriter(MapsII.pathToHere + "/config.json");
             g.toJson(Preference.getInstance(), writer);
             writer.flush();
             writer.close();
