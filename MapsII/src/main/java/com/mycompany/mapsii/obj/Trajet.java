@@ -5,7 +5,7 @@ import java.util.List;
 public class Trajet {
     private List<Section> sections;
 
-    public Trajet (List<Location> locations, Class transport) {
+    public Trajet (List<Location> locations, TransportEnum transport) {
         if (locations.size() == 0) return;
 
         Location previousLoc = locations.get(0);
@@ -16,15 +16,33 @@ public class Trajet {
     }
 
     public double calculatePrice() {
-        return 10.00;
+        double price = 0;
+
+        for (Section s: sections) {
+            price += s.getPrice();
+        }
+
+        return price;
     }
 
     public double calculateCarbonEmission() {
-        return 100;
+        double carbonEmission = 0;
+
+        for (Section s: sections) {
+            carbonEmission += s.getCarbonEmission();
+        }
+
+        return carbonEmission;
     }
 
     public int calculateDuration() {
-        return 3600;
+        int duration = 0;
+
+        for (Section s: sections) {
+            duration += s.getDuration();
+        }
+
+        return duration;
     }
 
     public int calculateScore() {
@@ -33,9 +51,11 @@ public class Trajet {
 
     public double getDistance() {
         double dist = 0;
+
         for (Section s: sections) {
             dist += s.getDistance();
         }
+
         return dist;
     }
 }

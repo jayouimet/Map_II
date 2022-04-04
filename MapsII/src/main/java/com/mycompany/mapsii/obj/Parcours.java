@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parcours {
-    private Class[] transports = { Bicycle.class, Walk.class, Bus.class, Metro.class, Taxi.class, Car.class };
+    private TransportEnum[] transports = {
+        TransportEnum.Bicycle,
+        TransportEnum.Bus,
+        TransportEnum.Car,
+        TransportEnum.Metro,
+        TransportEnum.Taxi
+    };
 
     private List<Trajet> trajets;
 
     public Parcours(List<Location> locations) {
-        for (Class transportClass: transports) {
-            trajets.add(new Trajet(locations, transportClass));
+        for (TransportEnum transport: transports) {
+            trajets.add(new Trajet(locations, transport));
         }
     }
 
