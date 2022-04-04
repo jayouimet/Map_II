@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9287ac1e-09a5-42f6-a90e-7d52e23729c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Preference.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/test.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/MapsII.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/MapsII.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/Preferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/Preferences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Preference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Preference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/test.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +124,10 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MapsII$Preferences.ic" NAME="Preferences Coverage Results" MODIFIED="1649029736563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/MapsII$MapsII.ic" NAME="MapsII Coverage Results" MODIFIED="1649031651209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.mycompany.mapsii.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/MapsII$Preferences.ic" NAME="Preferences Coverage Results" MODIFIED="1649032400773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.mycompany.mapsii.*</FILTER>
     </SUITE>
   </component>

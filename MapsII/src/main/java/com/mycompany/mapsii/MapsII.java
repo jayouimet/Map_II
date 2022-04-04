@@ -29,8 +29,7 @@ public class MapsII extends javax.swing.JFrame {
      * Creates new form MapsII
      */
     public MapsII() {
-
-        System.out.println(Preference.getInstance().test);
+        System.out.println(Preference.getInstance());
         initComponents();
         init();
         this.setTitle("Maps II Trajet");

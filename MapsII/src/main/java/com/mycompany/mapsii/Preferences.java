@@ -5,11 +5,13 @@
 package com.mycompany.mapsii;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mycompany.mapsii.obj.Preference;
 
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.io.File;
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -17,7 +19,7 @@ import java.nio.file.Paths;
  * @author Andre
  */
 public class Preferences extends javax.swing.JFrame {
-
+    private String pathConfig = "src/main/java/com/mycompany/mapsii/config.json";
     /**
      * Creates new form Preferences
      */
@@ -29,14 +31,12 @@ public class Preferences extends javax.swing.JFrame {
 
     private void initConfig() {
         Preference.setInstance(readConfigFile());
-        System.out.println(Preference.getInstance().test);
-
     }
 
     private Preference readConfigFile() {
         Gson g = new Gson();
 
-        String file = new File("src/main/java/com/mycompany/mapsii/test.json").getAbsolutePath();
+        String file = new File("src/main/java/com/mycompany/mapsii/config.json").getAbsolutePath();
         String json = "";
 
         try {
@@ -232,6 +232,19 @@ public class Preferences extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // Add field value here
+
+
+        Gson g = new GsonBuilder().setPrettyPrinting().create();
+        try {
+            FileWriter writer = new FileWriter("src/main/java/com/mycompany/mapsii/config.json");
+            g.toJson(Preference.getInstance(), writer);
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
         close();
         MapsII pi = new MapsII();
         pi.setVisible(true);         // TODO add your handling code here:
