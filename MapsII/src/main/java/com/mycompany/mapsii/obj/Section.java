@@ -20,9 +20,6 @@ public class Section {
             case Metro:
                 transport = new Metro();
                 break;
-            case Walk:
-                transport = new Walk();
-                break;
             case Taxi:
                 transport = new Taxi();
                 break;

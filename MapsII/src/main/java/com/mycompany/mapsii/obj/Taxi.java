@@ -4,13 +4,9 @@
  */
 package com.mycompany.mapsii.obj;
 
-/**
- *
- * @author Andre
- */
 public class Taxi extends Transport {
     public Taxi() {
-        this.consommation = 12;
+        this.consommation = 9;
         this.speed = 50;
     }
 }

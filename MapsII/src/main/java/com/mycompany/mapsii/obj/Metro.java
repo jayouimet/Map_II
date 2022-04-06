@@ -4,10 +4,6 @@
  */
 package com.mycompany.mapsii.obj;
 
-/**
- *
- * @author Andre
- */
 public class Metro extends Transport {
     public Metro() {
         this.consommation = 0;

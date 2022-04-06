@@ -4,10 +4,6 @@
  */
 package com.mycompany.mapsii.obj;
 
-/**
- *
- * @author Andre
- */
 public class Electric extends Car{
     public Electric() {
         this.consommation = 0;

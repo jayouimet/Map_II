@@ -4,17 +4,13 @@
  */
 package com.mycompany.mapsii;
 
-import com.mycompany.mapsii.obj.Bicycle;
-import com.mycompany.mapsii.obj.Bus;
-import com.mycompany.mapsii.obj.Car;
-import com.mycompany.mapsii.obj.Engine;
-import com.mycompany.mapsii.obj.Location;
-import com.mycompany.mapsii.obj.Metro;
-import com.mycompany.mapsii.obj.Taxi;
-import com.mycompany.mapsii.obj.Transport;
-import com.mycompany.mapsii.obj.Walk;
-import java.awt.Toolkit;
+import com.mycompany.mapsii.obj.*;
+import com.mycompany.mapsii.obj.Enums.TransportEnum;
+
+import java.awt.*;
 import java.awt.event.WindowEvent;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -23,47 +19,76 @@ import java.awt.event.WindowEvent;
 public class Recommandation extends javax.swing.JFrame {
     private Engine engine;
     private static String pathImg = "src/main/java/com/mycompany/mapsii/img/";
-    
-    /**
-     * Creates new form Recommandation
-     */
-    static Location locDepart;
-    static Location locArrive;
+    private Color defaultBgColor;
     
     public Recommandation() {
         initComponents();
+        this.setResizable(false);
         this.setTitle("Maps II Recommandations"); 
         loadImage();
     }
     
-    public Recommandation(String depart, String destination, Engine engine) {
+    public Recommandation(String depart, String destination, List<Location> locationList) {
         initComponents();
+        this.setResizable(false);
         this.setTitle("Maps II Recommandations"); 
-        this.engine = engine;
+        this.engine = new Engine(locationList);
         txtDepart.setText(depart);
         txtDestination.setText(destination);
         txtDepart.setEditable(false);
         txtDestination.setEditable(false);
         loadImage();
-            
-        locDepart = createLocation(depart);
-        locArrive = createLocation(destination);
-        
-        Car vehicule = new Car();
-        setAffichage(locDepart,locArrive,vehicule); 
-        btnCar.setFocusPainted(true);
+
+        defaultBgColor = btnCar.getBackground();
+
+        Map.Entry<TransportEnum, Trajet> best = engine.getParcours().getBest();
+
+        setSelectedButton(best.getKey());
+        setAffichage(best.getValue());
+    }
+
+    private void setSelectedButton(TransportEnum transportEnum) {
+        resetButtons();
+
+        switch (transportEnum) {
+            case Walk -> btnWalk.setBackground(new Color(128, 128, 128));
+            case Taxi -> btnTaxi.setBackground(new Color(128, 128, 128));
+            case Bus -> btnBus.setBackground(new Color(128, 128, 128));
+            case Car -> btnCar.setBackground(new Color(128, 128, 128));
+            case Metro -> btnMetro.setBackground(new Color(128, 128, 128));
+            case Bicycle -> btnBike.setBackground(new Color(128, 128, 128));
+        }
+    }
+
+    private void resetButtons() {
+        btnWalk.setBackground(defaultBgColor);
+        btnTaxi.setBackground(defaultBgColor);
+        btnBus.setBackground(defaultBgColor);
+        btnCar.setBackground(defaultBgColor);
+        btnMetro.setBackground(defaultBgColor);
+        btnBike.setBackground(defaultBgColor);
     }
     
-    public void setAffichage(Location depart, Location arriver, Transport vehicule){
-        Double distance = depart.getDistance(arriver);
-        
-        txtScore.setText(String.valueOf(0));
-        txtDistance.setText(String.format("%.2f",(distance))+" km");
-        txtEmission.setText(String.format("%.2f", vehicule.getEmission(distance))+" g/km");
-        txtDuration.setText(String.format("%.2f", vehicule.getSpeed()));
-        txtEstimatedCosts.setText(String.format("%.2f",vehicule.getPrice(distance))+"$");
+    public void setAffichage(Trajet trajet){
+        txtScore.setText(String.valueOf(trajet.calculateScore()));
+        txtDistance.setText(String.format("%.2f",(trajet.getDistance())) + " km");
+        txtEmission.setText(String.format("%.2f", trajet.calculateCarbonEmission()) + " g");
+        txtDuration.setText(toDateFormat(trajet.calculateDuration()));
+        txtEstimatedCosts.setText(String.format("%.2f",trajet.calculatePrice()) + " $");
     }
-    
+
+    private String toDateFormat(int seconds) {
+        int h, m, s;
+
+        h = seconds / 3600;
+        seconds %= 3600;
+        m = seconds / 60;
+        seconds %= 60;
+        s = seconds;
+
+        return h + ":" + (m < 10 ? ("0" + m) : m) + ":" + (s < 10 ? ("0" + s) : s);
+    }
+
      public Location createLocation(String nom){
         Location location = new Location("",0,0);
         switch(nom){
@@ -353,33 +378,33 @@ public class Recommandation extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void btnWalkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWalkActionPerformed
-        Walk vehicule = new Walk();
-        setAffichage(locDepart,locArrive, vehicule);
+        setSelectedButton(TransportEnum.Walk);
+        setAffichage(engine.getParcours().getTrajet(TransportEnum.Walk));
     }//GEN-LAST:event_btnWalkActionPerformed
 
     private void btnBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusActionPerformed
-        Bus vehicule = new Bus();
-        setAffichage(locDepart,locArrive, vehicule);
+        setSelectedButton(TransportEnum.Bus);
+        setAffichage(engine.getParcours().getTrajet(TransportEnum.Bus));
     }//GEN-LAST:event_btnBusActionPerformed
 
     private void btnTaxiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaxiActionPerformed
-        Taxi vehicule = new Taxi();
-        setAffichage(locDepart,locArrive, vehicule);
+        setSelectedButton(TransportEnum.Taxi);
+        setAffichage(engine.getParcours().getTrajet(TransportEnum.Taxi));
     }//GEN-LAST:event_btnTaxiActionPerformed
 
     private void btnCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarActionPerformed
-        Car vehicule = new Car();
-        setAffichage(locDepart,locArrive, vehicule);                
+        setSelectedButton(TransportEnum.Car);
+        setAffichage(engine.getParcours().getTrajet(TransportEnum.Car));
     }//GEN-LAST:event_btnCarActionPerformed
 
     private void btnMetroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetroActionPerformed
-       Metro vehicule = new Metro();
-       setAffichage(locDepart,locArrive, vehicule);
+        setSelectedButton(TransportEnum.Metro);
+        setAffichage(engine.getParcours().getTrajet(TransportEnum.Metro));
     }//GEN-LAST:event_btnMetroActionPerformed
 
     private void btnBikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBikeActionPerformed
-        Bicycle vehicule = new Bicycle();
-        setAffichage(locDepart,locArrive, vehicule);
+        setSelectedButton(TransportEnum.Bicycle);
+        setAffichage(engine.getParcours().getTrajet(TransportEnum.Bicycle));
     }//GEN-LAST:event_btnBikeActionPerformed
 
     /**

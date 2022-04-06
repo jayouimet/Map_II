@@ -12,7 +12,8 @@ public class Parcours {
         TransportEnum.Bus,
         TransportEnum.Car,
         TransportEnum.Metro,
-        TransportEnum.Taxi
+        TransportEnum.Taxi,
+        TransportEnum.Walk
     };
 
     private Map<TransportEnum, Trajet> trajets;
@@ -23,6 +24,10 @@ public class Parcours {
         for (TransportEnum transport: transports) {
             trajets.put(transport, new Trajet(locations, transport));
         }
+    }
+
+    public Trajet getTrajet(TransportEnum transport) {
+        return trajets.get(transport);
     }
 
     public Map<TransportEnum, Trajet> getTrajets() {

@@ -4,10 +4,6 @@
  */
 package com.mycompany.mapsii.obj;
 
-/**
- *
- * @author Andre
- */
 public class Car extends Transport {
     public Car() {
         this.consommation = 9;

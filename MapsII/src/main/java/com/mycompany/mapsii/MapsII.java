@@ -29,11 +29,8 @@ import java.awt.Dimension;
  */
 public class MapsII extends javax.swing.JFrame {
     public static String pathToHere = "src/main/java/com/mycompany/mapsii/";
-
-    private Engine engine;
     
     private static String pathImg = pathToHere + "img/";
-    private List<Location> choices;
     private String selectedDepart = null;
     private String selectedDestination = null;
     
@@ -43,67 +40,11 @@ public class MapsII extends javax.swing.JFrame {
     public MapsII() {
         System.out.println(Preference.getInstance());
         initComponents();
-        this.engine = new Engine();
-        this.choices = engine.getLocations();
-        init();
+        this.setResizable(false);
+        Preference.setInstance(readConfigFile());
         this.setTitle("Maps II Trajet");
         this.btnItineraire.setEnabled(false);
         loadImage();
-    }
-    
-    private void init() {
-        initConfig();
-
-        for (Location c: choices) {
-            cboDepart.addItem(c.getName());
-            cboDestination.addItem(c.getName());
-        }
-        cboDepart.setSelectedItem(null);
-        cboDestination.setSelectedItem(null);
-
-        cboDepart.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (cboDestination.getSelectedItem() != null)
-                    selectedDestination = cboDestination.getSelectedItem().toString();
-
-                cboDestination.removeAllItems();
-                for (Location c: choices) {
-                    if (!c.getName().equals(cboDepart.getSelectedItem())) {
-                        cboDestination.addItem(c.getName());
-                    }
-                }
-                cboDestination.setSelectedItem(selectedDestination);
-
-                btnItineraire.setEnabled(
-                        cboDestination.getSelectedItem() != null && cboDepart.getSelectedItem() != null
-                );
-            }
-        });
-
-        cboDestination.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (cboDepart.getSelectedItem() != null)
-                    selectedDepart = cboDepart.getSelectedItem().toString();;
-
-                cboDepart.removeAllItems();
-                for (Location c: choices) {
-                    if (!c.getName().equals(cboDestination.getSelectedItem())) {
-                        cboDepart.addItem(c.getName());
-                    }
-                }
-                cboDepart.setSelectedItem(selectedDepart);
-
-                btnItineraire.setEnabled(
-                        cboDestination.getSelectedItem() != null && cboDepart.getSelectedItem() != null
-                );
-            }
-        });
-    }
-
-    private void initConfig() {
-        Preference.setInstance(readConfigFile());
     }
 
     private Preference readConfigFile() {
@@ -143,8 +84,6 @@ public class MapsII extends javax.swing.JFrame {
         btnItineraire = new javax.swing.JButton();
         btnConfig = new javax.swing.JButton();
         lblMap = new javax.swing.JLabel();
-        cboDepart = new javax.swing.JComboBox<>();
-        cboDestination = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnAddEscale = new javax.swing.JButton();
@@ -155,6 +94,9 @@ public class MapsII extends javax.swing.JFrame {
         txtEscale3 = new javax.swing.JTextField();
         txtEscale3.setVisible(false);
         btnRemoveEscale = new javax.swing.JButton();
+        txtDepart = new javax.swing.JTextField();
+        txtDestination = new javax.swing.JTextField();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -174,17 +116,6 @@ public class MapsII extends javax.swing.JFrame {
             }
         });
 
-        cboDepart.setMinimumSize(new java.awt.Dimension(122, 22));
-        cboDepart.setPreferredSize(new java.awt.Dimension(185, 24));
-        cboDepart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboDepartActionPerformed(evt);
-            }
-        });
-
-        cboDestination.setMinimumSize(new java.awt.Dimension(122, 22));
-        cboDestination.setPreferredSize(new java.awt.Dimension(185, 24));
-
         jLabel2.setText("Depart");
 
         jLabel3.setText("Destination");
@@ -197,15 +128,32 @@ public class MapsII extends javax.swing.JFrame {
         });
 
         txtEscale1.setToolTipText("");
+        txtEscale1.setPreferredSize(new java.awt.Dimension(185, 24));
 
         txtEscale2.setToolTipText("");
+        txtEscale2.setPreferredSize(new java.awt.Dimension(185, 24));
 
         txtEscale3.setToolTipText("");
+        txtEscale3.setPreferredSize(new java.awt.Dimension(185, 24));
 
         btnRemoveEscale.setText("-");
         btnRemoveEscale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveEscaleActionPerformed(evt);
+            }
+        });
+
+        txtDepart.setPreferredSize(new java.awt.Dimension(185, 24));
+        txtDepart.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDepartKeyTyped(evt);
+            }
+        });
+
+        txtDestination.setPreferredSize(new java.awt.Dimension(185, 24));
+        txtDestination.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDestinationKeyTyped(evt);
             }
         });
 
@@ -216,6 +164,29 @@ public class MapsII extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnItineraire, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnAddEscale)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRemoveEscale)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtDepart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtDestination, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
@@ -225,32 +196,11 @@ public class MapsII extends javax.swing.JFrame {
                                     .addComponent(txtEscale3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(cboDepart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnItineraire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
                                 .addComponent(btnConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(12, 12, 12))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cboDestination, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAddEscale)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRemoveEscale)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addGap(18, 18, 18))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtEscale1, txtEscale2, txtEscale3});
@@ -259,31 +209,37 @@ public class MapsII extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDepart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(txtEscale1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEscale2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEscale3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddEscale, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemoveEscale, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cboDepart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtEscale1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEscale2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEscale3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cboDestination, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAddEscale, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRemoveEscale, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
                         .addComponent(btnItineraire)))
-                .addContainerGap())
+                .addGap(8, 8, 8))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtEscale1, txtEscale2, txtEscale3});
@@ -305,28 +261,26 @@ public class MapsII extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
         
     private void btnItineraireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItineraireActionPerformed
-        close();
-        String depart = cboDepart.getSelectedItem().toString();
-        String destination = cboDestination.getSelectedItem().toString();
+
+        Location depart = new Location(txtDepart.getText());
+        Location destination = new Location(txtDestination.getText());
+
         List<Location> locations = new ArrayList<Location>();
-        
-        for (Location l: engine.getLocations()) {
-            if (l.getName() == depart) {
-                locations.add(l);
-                break;
-            }
+
+        if (!depart.isValid()) {
+            txtDepart.setText("Adresse invalide");
+            return;
         }
-        
-        for (Location l: engine.getLocations()) {
-            if (l.getName() == destination) {
-                locations.add(l);
-                break;
-            }
+        locations.add(depart);
+
+        if (!destination.isValid()) {
+            txtDestination.setText("Adresse invalide");
+            return;
         }
+        locations.add(destination);
         
-        engine.generateParcours(locations);
-        
-        Recommandation pi = new Recommandation(depart, destination, engine);
+        close();
+        Recommandation pi = new Recommandation(depart.getName(), destination.getName(), locations);
         pi.setVisible(true);
     }//GEN-LAST:event_btnItineraireActionPerformed
 
@@ -335,10 +289,6 @@ public class MapsII extends javax.swing.JFrame {
         Preferences pi = new Preferences();
         pi.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnConfigActionPerformed
-
-    private void cboDepartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboDepartActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cboDepartActionPerformed
 
     private void btnAddEscaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEscaleActionPerformed
 
@@ -372,6 +322,20 @@ public class MapsII extends javax.swing.JFrame {
         jPanel1.revalidate();
         jPanel1.repaint();
     }//GEN-LAST:event_btnRemoveEscaleActionPerformed
+
+    private void txtDepartKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDepartKeyTyped
+        setBtnItineraireEnabled();
+    }//GEN-LAST:event_txtDepartKeyTyped
+
+    private void txtDestinationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDestinationKeyTyped
+        setBtnItineraireEnabled();
+    }//GEN-LAST:event_txtDestinationKeyTyped
+
+    private void setBtnItineraireEnabled() {
+        btnItineraire.setEnabled(
+                txtDepart.getText().length() > 0 && txtDestination.getText().length() > 0
+        );
+    }
 
     /**
      * @param args the command line arguments
@@ -413,12 +377,13 @@ public class MapsII extends javax.swing.JFrame {
     private javax.swing.JButton btnConfig;
     private javax.swing.JButton btnItineraire;
     private javax.swing.JButton btnRemoveEscale;
-    private javax.swing.JComboBox<String> cboDepart;
-    private javax.swing.JComboBox<String> cboDestination;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMap;
+    private javax.swing.JTextField txtDepart;
+    private javax.swing.JTextField txtDestination;
     private javax.swing.JTextField txtEscale1;
     private javax.swing.JTextField txtEscale2;
     private javax.swing.JTextField txtEscale3;

@@ -4,10 +4,6 @@
  */
 package com.mycompany.mapsii.obj;
 
-/**
- *
- * @author Andre
- */
 public class Walk extends Transport{
     public Walk() {
         this.consommation = 0;

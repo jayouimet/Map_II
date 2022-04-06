@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9287ac1e-09a5-42f6-a90e-7d52e23729c2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/google_maps_services.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/MapsII.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/MapsII.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/MapsII.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/MapsII.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/Preferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/Preferences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/Recommandation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/Recommandation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Bicycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Bicycle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Electric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Electric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Hybrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Hybrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Metro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Metro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Parcours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Parcours.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/SUV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/SUV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Taxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Taxi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Transport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Transport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Truck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Truck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Walk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mapsii/obj/Walk.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -123,10 +141,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MapsII$MapsII.ic" NAME="MapsII Coverage Results" MODIFIED="1649090391418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/MapsII$Preferences.ic" NAME="Preferences Coverage Results" MODIFIED="1649038618255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.mycompany.mapsii.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/MapsII$Preferences.ic" NAME="Preferences Coverage Results" MODIFIED="1649038618255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/MapsII$MapsII.ic" NAME="MapsII Coverage Results" MODIFIED="1649090391418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.mycompany.mapsii.*</FILTER>
     </SUITE>
   </component>

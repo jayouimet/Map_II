@@ -4,10 +4,6 @@
  */
 package com.mycompany.mapsii.obj;
 
-/**
- *
- * @author Andre
- */
 public class Bicycle extends Transport {
     public Bicycle() {
         this.consommation = 0;

@@ -4,10 +4,6 @@
  */
 package com.mycompany.mapsii.obj;
 
-/**
- *
- * @author Andre
- */
 public abstract class Transport {
     protected double consommation;
     protected double speed;

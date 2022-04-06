@@ -4,10 +4,6 @@
  */
 package com.mycompany.mapsii.obj;
 
-/**
- *
- * @author Andre
- */
 public class Hybrid extends Car{
     public Hybrid() {
         this.consommation = 6;

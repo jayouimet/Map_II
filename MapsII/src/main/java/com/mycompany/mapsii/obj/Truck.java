@@ -4,12 +4,8 @@
  */
 package com.mycompany.mapsii.obj;
 
-/**
- *
- * @author Andre
- */
 public class Truck extends Car{
     public Truck(){
-        this.consommation = 33;
+        this.consommation = 20;
     }
 }

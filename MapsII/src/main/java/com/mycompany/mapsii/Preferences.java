@@ -26,6 +26,7 @@ public class Preferences extends javax.swing.JFrame {
      */
     public Preferences() {
         initComponents();
+        this.setResizable(false);
         initDisplay();
         this.setTitle("Préferences");
     }
