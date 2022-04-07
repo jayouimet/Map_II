@@ -77,9 +77,9 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtDuration" alignment="0" pref="145" max="32767" attributes="0"/>
                                       <Component id="txtEstimatedCosts" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtScore" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
                                       <Component id="txtEmission" alignment="0" max="32767" attributes="0"/>
                                       <Component id="txtDistance" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtScore" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -121,20 +121,13 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="btnTaxi" linkSize="3" alignment="0" max="32767" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="btnBus" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="btnBike" linkSize="3" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
-                                                      <Component id="btnCar" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="btnTaxi" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnBus" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnBike" linkSize="3" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                                          <Component id="btnCar" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="btnWalk" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="lblScore" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtScore" alignment="3" min="-2" max="-2" attributes="0"/>
