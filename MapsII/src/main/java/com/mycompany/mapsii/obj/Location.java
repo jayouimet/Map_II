@@ -62,10 +62,11 @@ public class Location {
         latDiff = Math.abs(this.latitude - destination.latitude);
         longDiff = Math.abs(this.longitude - destination.longitude);
 
-         latKm = latDiff * 110.574;
-         longKm = Math.cos(Math.toRadians(this.latitude)) * longDiff * 111.320;
+        latKm = latDiff * 110.574;
+        longKm = Math.cos(Math.toRadians(this.latitude)) * longDiff * 111.320;
 
-        return Math.sqrt(latKm * latKm + longKm * longKm);
+        // 1.3 to approximate for curves on the road
+        return Math.sqrt(latKm * latKm + longKm * longKm) * 1.3;
     }
 
     public boolean isValid() {
