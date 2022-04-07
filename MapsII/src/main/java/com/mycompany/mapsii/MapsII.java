@@ -372,6 +372,7 @@ public class MapsII extends javax.swing.JFrame {
         
         jPanel1.revalidate();
         jPanel1.repaint();
+        setBtnItineraireEnabled();
     }//GEN-LAST:event_btnAddEscaleActionPerformed
 
     private void btnRemoveEscaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveEscaleActionPerformed
@@ -391,6 +392,7 @@ public class MapsII extends javax.swing.JFrame {
         
         jPanel1.revalidate();
         jPanel1.repaint();
+        setBtnItineraireEnabled();
     }//GEN-LAST:event_btnRemoveEscaleActionPerformed
 
     private void txtDepartKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDepartKeyTyped
