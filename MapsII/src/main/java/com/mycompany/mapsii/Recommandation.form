@@ -62,42 +62,43 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="txtDestination" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblEstimatedCosts" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblDuration" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblDistance" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblEmission" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblScore" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtDuration" alignment="0" pref="145" max="32767" attributes="0"/>
-                                      <Component id="txtEstimatedCosts" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtEmission" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtDistance" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtScore" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtDestination" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblEstimatedCosts" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblDuration" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblDistance" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblEmission" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblScore" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnCar" linkSize="4" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnBus" linkSize="4" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnMetro" linkSize="4" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnTaxi" linkSize="4" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnBike" linkSize="4" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnWalk" linkSize="4" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtDuration" alignment="0" pref="145" max="32767" attributes="0"/>
+                                  <Component id="txtEstimatedCosts" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtEmission" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtDistance" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtScore" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="txtDepart" alignment="1" max="32767" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnCar" linkSize="4" min="-2" pref="36" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnBus" linkSize="4" min="-2" pref="36" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnMetro" linkSize="4" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnTaxi" linkSize="4" min="-2" pref="36" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnBike" linkSize="4" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnWalk" linkSize="4" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="txtDepart" alignment="1" max="32767" attributes="0"/>
                           <Component id="btnReturn" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
+                          <Component id="txtEscale1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtEscale2" max="32767" attributes="0"/>
+                          <Component id="txtEscale3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="lblMap" min="-2" pref="472" max="-2" attributes="0"/>
@@ -113,11 +114,17 @@
                           <Component id="lblMap" min="-2" pref="390" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="btnReturn" min="-2" pref="33" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txtDepart" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtEscale1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtEscale2" min="-2" pref="22" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtEscale3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtDestination" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -157,6 +164,7 @@
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -185,6 +193,9 @@
             <Component class="javax.swing.JTextField" name="txtDepart">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Adresse de d&#xe9;part"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[134, 25]"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEstimatedCosts">
@@ -195,6 +206,9 @@
             <Component class="javax.swing.JTextField" name="txtDestination">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Adresse de destination"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[134, 25]"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblScore">
@@ -258,6 +272,36 @@
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblMap">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtEscale1">
+              <Properties>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[134, 25]"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="txtEscale1.setVisible(false);"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtEscale2">
+              <Properties>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[134, 25]"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="txtEscale2.setVisible(false);"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtEscale3">
+              <Properties>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[134, 25]"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="txtEscale3.setVisible(false);"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
