@@ -340,11 +340,6 @@ public class MapsII extends javax.swing.JFrame {
             return;
         }
         locations.add(destination);
-
-        for (Location l: locations
-             ) {
-            System.out.println(l.getName());
-        }
         
         close();
         Recommandation pi = new Recommandation(depart.getName(), destination.getName(), locations);
