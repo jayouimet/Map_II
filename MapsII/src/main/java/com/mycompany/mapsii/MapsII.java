@@ -310,12 +310,6 @@ public class MapsII extends javax.swing.JFrame {
             return;
         }
         locations.add(depart);
-
-        if (!destination.isValid()) {
-            txtDestination.setText("Adresse invalide");
-            return;
-        }
-        locations.add(destination);
         
         if (escale1 != null) {
             if (!escale1.isValid()) {
@@ -346,6 +340,11 @@ public class MapsII extends javax.swing.JFrame {
             return;
         }
         locations.add(destination);
+
+        for (Location l: locations
+             ) {
+            System.out.println(l.getName());
+        }
         
         close();
         Recommandation pi = new Recommandation(depart.getName(), destination.getName(), locations);
