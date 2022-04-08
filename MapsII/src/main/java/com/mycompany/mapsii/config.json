@@ -1,6 +1,6 @@
 {
-  "variableDominante": "Cost",
+  "variableDominante": "Duration",
   "mesureDistance": 0,
   "typeVoiture": "Truck",
-  "couleurFond": 1
+  "couleurFond": 0
 }

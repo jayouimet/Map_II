@@ -38,7 +38,7 @@ public class Parcours {
         Map.Entry<TransportEnum, Trajet> bestTrajet = null;
 
         for (Map.Entry<TransportEnum, Trajet> entry: trajets.entrySet()) {
-            if (bestTrajet == null || entry.getValue().calculateScore() > bestTrajet.getValue().calculateScore()) {
+            if (bestTrajet == null || entry.getValue().getScore() > bestTrajet.getValue().getScore()) {
                 bestTrajet = entry;
             }
         }

@@ -7,31 +7,32 @@ package com.mycompany.mapsii;
 import com.mycompany.mapsii.obj.*;
 import com.mycompany.mapsii.obj.Enums.TransportEnum;
 
+import org.apache.commons.math3.distribution.NormalDistribution;
 import java.awt.*;
 import java.awt.event.WindowEvent;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 
 /**
  *
- * @author Andre
+ * @author Jeremie
  */
 public class Recommandation extends javax.swing.JFrame {
     private Engine engine;
     private static String pathImg = "src/main/java/com/mycompany/mapsii/img/";
     private Color defaultBgColor;
-    
+
     public Recommandation() {
         initComponents();
         this.setResizable(false);
-        this.setTitle("Maps II Recommandations"); 
+        this.setTitle("Maps II Recommandations");
         loadImage();
     }
-    
+
     public Recommandation(String depart, String destination, List<Location> locationList) {
         initComponents();
         this.setResizable(false);
-        this.setTitle("Maps II Recommandations"); 
+        this.setTitle("Maps II Recommandations");
         this.engine = new Engine(locationList);
         txtDepart.setText(depart);
         txtDestination.setText(destination);
@@ -41,6 +42,7 @@ public class Recommandation extends javax.swing.JFrame {
 
         defaultBgColor = btnCar.getBackground();
 
+        initScores();
         Map.Entry<TransportEnum, Trajet> best = engine.getParcours().getBest();
 
         setSelectedButton(best.getKey());
@@ -61,6 +63,32 @@ public class Recommandation extends javax.swing.JFrame {
             }
         }
         
+    }
+
+    private void initScores(){
+        int N = engine.getParcours().getTrajets().size();
+        double maxScore = 0;
+        double avg = 0;
+        double standardDev = 0;
+        double score;
+
+        for(Map.Entry<TransportEnum,Trajet> t : engine.getParcours().getTrajets().entrySet()){
+            score = t.getValue().calculateScore();
+            avg += score/N;
+            if(maxScore < score) maxScore = score;
+        }
+
+        for(Map.Entry<TransportEnum,Trajet> t : engine.getParcours().getTrajets().entrySet()){
+            standardDev += Math.pow(t.getValue().getScore() - avg,2) / N;
+        }
+        standardDev = Math.sqrt(standardDev);
+
+        double percentage;
+        NormalDistribution nd = new NormalDistribution(avg, standardDev);
+        for(Map.Entry<TransportEnum,Trajet> t : engine.getParcours().getTrajets().entrySet()){
+            percentage = nd.cumulativeProbability(t.getValue().getScore());
+            engine.getParcours().getTrajet(t.getKey()).setScore(Math.ceil(percentage * 100));
+        }
     }
 
     private void setSelectedButton(TransportEnum transportEnum) {
@@ -84,9 +112,13 @@ public class Recommandation extends javax.swing.JFrame {
         btnMetro.setBackground(defaultBgColor);
         btnBike.setBackground(defaultBgColor);
     }
-    
+
     public void setAffichage(Trajet trajet){
-        txtScore.setText(String.valueOf(trajet.calculateScore()));
+        txtScore.setText(String.valueOf(trajet.getScore()));
+        if(trajet.getScore() >= 75) txtScore.setBackground(new Color(128,255,128));
+        else if(trajet.getScore() >= 30) txtScore.setBackground(new Color(255,255,0));
+        else txtScore.setBackground(new Color(255,20,20));
+
         txtDistance.setText(String.format("%.2f",(trajet.getDistance())) + " km");
         txtEmission.setText(String.format("%.2f", trajet.calculateCarbonEmission()) + " g");
         txtDuration.setText(toDateFormat(trajet.calculateDuration()));

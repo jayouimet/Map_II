@@ -12,6 +12,7 @@ import com.mycompany.mapsii.obj.Preference;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileReader;
@@ -19,6 +20,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.*;
 import javax.swing.ImageIcon;
 import java.awt.Dimension;
 
@@ -29,22 +31,35 @@ import java.awt.Dimension;
  */
 public class MapsII extends javax.swing.JFrame {
     public static String pathToHere = "src/main/java/com/mycompany/mapsii/";
-    
+
     private static String pathImg = pathToHere + "img/";
     private String selectedDepart = null;
     private String selectedDestination = null;
-    
+
+    private JDialog preferences;
+
     /**
      * Creates new form MapsII
      */
     public MapsII() {
-        System.out.println(Preference.getInstance());
         initComponents();
         this.setResizable(false);
         Preference.setInstance(readConfigFile());
+        System.out.println(Preference.getInstance());
         this.setTitle("Maps II Trajet");
         this.btnItineraire.setEnabled(false);
         loadImage();
+
+        preferences = new Preferences(this);
+        preferences.addWindowListener(new WindowAdapter(){
+            @Override
+            public void windowClosing(WindowEvent arg0) {
+                preferences.setVisible(false);
+                System.out.println("qweqweq");
+                setEnabled(true);
+                setVisible(true);
+            };
+        });
     }
 
     private Preference readConfigFile() {
@@ -60,17 +75,17 @@ public class MapsII extends javax.swing.JFrame {
 
         return null;
     }
-    
+
      public void close(){
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
 
-     
+
     public void loadImage() {
         this.btnConfig.setIcon(new ImageIcon(pathImg + "Roue.png"));
         this.lblMap.setIcon(new ImageIcon(pathImg + "Map1.png"));
-    }        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -131,27 +146,12 @@ public class MapsII extends javax.swing.JFrame {
 
         txtEscale1.setToolTipText("");
         txtEscale1.setPreferredSize(new java.awt.Dimension(185, 24));
-        txtEscale1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtEscale1KeyTyped(evt);
-            }
-        });
 
         txtEscale2.setToolTipText("");
         txtEscale2.setPreferredSize(new java.awt.Dimension(185, 24));
-        txtEscale2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtEscale2KeyTyped(evt);
-            }
-        });
 
         txtEscale3.setToolTipText("");
         txtEscale3.setPreferredSize(new java.awt.Dimension(185, 24));
-        txtEscale3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtEscale3KeyTyped(evt);
-            }
-        });
 
         btnRemoveEscale.setText("-");
         btnRemoveEscale.addActionListener(new java.awt.event.ActionListener() {
@@ -283,24 +283,10 @@ public class MapsII extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-        
+
     private void btnItineraireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItineraireActionPerformed
 
         Location depart = new Location(txtDepart.getText());
-
-        Location escale1 = null, escale2 = null, escale3 = null;
-        if (txtEscale1.isVisible() && txtEscale1.getText().length() > 0) {
-            escale1 = new Location(txtEscale1.getText());
-        }
-        
-        if (txtEscale2.isVisible() && txtEscale2.getText().length() > 0) {
-            escale2 = new Location(txtEscale2.getText());
-        }
-        
-        if (txtEscale3.isVisible() && txtEscale3.getText().length() > 0) {
-            escale3 = new Location(txtEscale3.getText());
-        }
-
         Location destination = new Location(txtDestination.getText());
 
         List<Location> locations = new ArrayList<Location>();
@@ -310,46 +296,22 @@ public class MapsII extends javax.swing.JFrame {
             return;
         }
         locations.add(depart);
-        
-        if (escale1 != null) {
-            if (!escale1.isValid()) {
-                txtEscale1.setText("Adresse invalide");
-                return;
-            }
-            locations.add(escale1);
-        }
-        
-        if (escale2 != null) {
-            if (!escale2.isValid()) {
-                txtEscale2.setText("Adresse invalide");
-                return;
-            }
-            locations.add(escale2);
-        }
-        
-        if (escale3 != null) {
-            if (!escale3.isValid()) {
-                txtEscale3.setText("Adresse invalide");
-                return;
-            }
-            locations.add(escale3);
-        }
 
         if (!destination.isValid()) {
             txtDestination.setText("Adresse invalide");
             return;
         }
         locations.add(destination);
-        
+
         close();
         Recommandation pi = new Recommandation(depart.getName(), destination.getName(), locations);
         pi.setVisible(true);
     }//GEN-LAST:event_btnItineraireActionPerformed
 
     private void btnConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigActionPerformed
-        close();
-        Preferences pi = new Preferences();
-        pi.setVisible(true);        // TODO add your handling code here:
+        //close();
+        this.setEnabled(false);
+        preferences.setVisible(true);
     }//GEN-LAST:event_btnConfigActionPerformed
 
     private void btnAddEscaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEscaleActionPerformed
@@ -360,13 +322,12 @@ public class MapsII extends javax.swing.JFrame {
         }
         else if (!txtEscale2.isVisible())
             this.txtEscale2.setVisible(true);
-        
+
         else if (!txtEscale3.isVisible())
             this.txtEscale3.setVisible(true);
-        
+
         jPanel1.revalidate();
         jPanel1.repaint();
-        setBtnItineraireEnabled();
     }//GEN-LAST:event_btnAddEscaleActionPerformed
 
     private void btnRemoveEscaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveEscaleActionPerformed
@@ -383,10 +344,9 @@ public class MapsII extends javax.swing.JFrame {
             this.txtEscale1.setText("");
             this.lblEscales.setVisible(false);
         }
-        
+
         jPanel1.revalidate();
         jPanel1.repaint();
-        setBtnItineraireEnabled();
     }//GEN-LAST:event_btnRemoveEscaleActionPerformed
 
     private void txtDepartKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDepartKeyTyped
@@ -397,25 +357,9 @@ public class MapsII extends javax.swing.JFrame {
         setBtnItineraireEnabled();
     }//GEN-LAST:event_txtDestinationKeyTyped
 
-    private void txtEscale1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEscale1KeyTyped
-        setBtnItineraireEnabled();
-    }//GEN-LAST:event_txtEscale1KeyTyped
-
-    private void txtEscale2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEscale2KeyTyped
-        setBtnItineraireEnabled();
-    }//GEN-LAST:event_txtEscale2KeyTyped
-
-    private void txtEscale3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEscale3KeyTyped
-        setBtnItineraireEnabled();
-    }//GEN-LAST:event_txtEscale3KeyTyped
-
     private void setBtnItineraireEnabled() {
         btnItineraire.setEnabled(
-                txtDepart.getText().length() > 0 && 
-                txtDestination.getText().length() > 0 && 
-                (!txtEscale1.isVisible() || txtEscale1.getText().length() > 0) &&
-                (!txtEscale2.isVisible() || txtEscale2.getText().length() > 0) &&
-                (!txtEscale3.isVisible() || txtEscale3.getText().length() > 0)
+                txtDepart.getText().length() > 0 && txtDestination.getText().length() > 0
         );
     }
 

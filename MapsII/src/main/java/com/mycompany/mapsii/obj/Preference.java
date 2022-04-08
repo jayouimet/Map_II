@@ -1,6 +1,7 @@
 package com.mycompany.mapsii.obj;
 
 import com.mycompany.mapsii.obj.Enums.CarEnum;
+import com.mycompany.mapsii.obj.Enums.VariableEnum;
 
 public class Preference {
     private static String[] mesuresDistance = {"KM", "Miles"};
@@ -31,6 +32,10 @@ public class Preference {
 
     public CarEnum getCarType(){
         return CarEnum.valueOf(typeVoiture);
+    }
+
+    public VariableEnum getImportantVariable(){
+        return VariableEnum.valueOf(variableDominante);
     }
 
     @Override

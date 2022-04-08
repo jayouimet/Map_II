@@ -7,7 +7,7 @@ package com.mycompany.mapsii.obj;
 public class Metro extends Transport {
     public Metro() {
         this.consommation = 0;
-        this.speed = 30;
+        this.speed = 40;
     }
 
     @Override
