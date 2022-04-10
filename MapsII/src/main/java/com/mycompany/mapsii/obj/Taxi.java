@@ -9,4 +9,9 @@ public class Taxi extends Transport {
         this.consommation = 9;
         this.speed = 50;
     }
+
+    @Override
+    public double getPrice(double distance) {
+        return 3.45 + 1.7 * distance;
+    }
 }
