@@ -84,7 +84,7 @@ public class MapsII extends javax.swing.JFrame {
 
     public void loadImage() {
         this.btnConfig.setIcon(new ImageIcon(pathImg + "Roue.png"));
-        this.lblMap.setIcon(new ImageIcon(pathImg + "Map1.png"));
+        //this.lblMap.setIcon(new ImageIcon(pathImg + "Map1.png"));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,33 +96,25 @@ public class MapsII extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnItineraire = new javax.swing.JButton();
         btnConfig = new javax.swing.JButton();
-        lblMap = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnAddEscale = new javax.swing.JButton();
         txtEscale1 = new javax.swing.JTextField();
         txtEscale1.setVisible(false);
         txtEscale2 = new javax.swing.JTextField();
         txtEscale2.setVisible(false);
         txtEscale3 = new javax.swing.JTextField();
         txtEscale3.setVisible(false);
-        btnRemoveEscale = new javax.swing.JButton();
         txtDepart = new javax.swing.JTextField();
         txtDestination = new javax.swing.JTextField();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         lblEscales = new javax.swing.JLabel();
         lblEscales.setVisible(false);
+        btnAddEscale = new javax.swing.JButton();
+        btnRemoveEscale = new javax.swing.JButton();
+        btnItineraire = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        btnItineraire.setText("ITINÉRAIRE");
-        btnItineraire.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnItineraireActionPerformed(evt);
-            }
-        });
 
         btnConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/mapsii/images/Roue.png"))); // NOI18N
         btnConfig.setMaximumSize(new java.awt.Dimension(593, 521));
@@ -137,15 +129,9 @@ public class MapsII extends javax.swing.JFrame {
 
         jLabel3.setText("Destination");
 
-        btnAddEscale.setText("+");
-        btnAddEscale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddEscaleActionPerformed(evt);
-            }
-        });
-
         txtEscale1.setToolTipText("");
-        txtEscale1.setPreferredSize(new java.awt.Dimension(185, 24));
+        txtEscale1.setMinimumSize(new java.awt.Dimension(185, 22));
+        txtEscale1.setPreferredSize(new java.awt.Dimension(185, 25));
         txtEscale1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtEscale1KeyTyped(evt);
@@ -153,7 +139,8 @@ public class MapsII extends javax.swing.JFrame {
         });
 
         txtEscale2.setToolTipText("");
-        txtEscale2.setPreferredSize(new java.awt.Dimension(185, 24));
+        txtEscale2.setMinimumSize(new java.awt.Dimension(185, 22));
+        txtEscale2.setPreferredSize(new java.awt.Dimension(185, 25));
         txtEscale2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtEscale2KeyTyped(evt);
@@ -161,28 +148,24 @@ public class MapsII extends javax.swing.JFrame {
         });
 
         txtEscale3.setToolTipText("");
-        txtEscale3.setPreferredSize(new java.awt.Dimension(185, 24));
+        txtEscale3.setMinimumSize(new java.awt.Dimension(185, 22));
+        txtEscale3.setPreferredSize(new java.awt.Dimension(185, 25));
         txtEscale3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtEscale3KeyTyped(evt);
             }
         });
 
-        btnRemoveEscale.setText("-");
-        btnRemoveEscale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveEscaleActionPerformed(evt);
-            }
-        });
-
-        txtDepart.setPreferredSize(new java.awt.Dimension(185, 24));
+        txtDepart.setMinimumSize(new java.awt.Dimension(185, 22));
+        txtDepart.setPreferredSize(new java.awt.Dimension(185, 25));
         txtDepart.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDepartKeyTyped(evt);
             }
         });
 
-        txtDestination.setPreferredSize(new java.awt.Dimension(185, 24));
+        txtDestination.setMinimumSize(new java.awt.Dimension(185, 22));
+        txtDestination.setPreferredSize(new java.awt.Dimension(185, 25));
         txtDestination.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDestinationKeyTyped(evt);
@@ -223,21 +206,11 @@ public class MapsII extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAddEscale)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRemoveEscale))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnItineraire, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtDepart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(608, 608, 608))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtEscale1, txtEscale2, txtEscale3});
@@ -263,37 +236,59 @@ public class MapsII extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAddEscale, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRemoveEscale, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnItineraire)))
-                .addGap(8, 8, 8))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtEscale1, txtEscale2, txtEscale3});
+
+        btnAddEscale.setText("+");
+        btnAddEscale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddEscaleActionPerformed(evt);
+            }
+        });
+
+        btnRemoveEscale.setText("-");
+        btnRemoveEscale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveEscaleActionPerformed(evt);
+            }
+        });
+
+        btnItineraire.setText("ITINÉRAIRE");
+        btnItineraire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnItineraireActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAddEscale)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemoveEscale))
+                    .addComponent(btnItineraire, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddEscale, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemoveEscale, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnItineraire)
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -477,7 +472,6 @@ public class MapsII extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblEscales;
-    private javax.swing.JLabel lblMap;
     private javax.swing.JTextField txtDepart;
     private javax.swing.JTextField txtDestination;
     private javax.swing.JTextField txtEscale1;
