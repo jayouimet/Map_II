@@ -146,12 +146,27 @@ public class MapsII extends javax.swing.JFrame {
 
         txtEscale1.setToolTipText("");
         txtEscale1.setPreferredSize(new java.awt.Dimension(185, 24));
+        txtEscale1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEscale1KeyTyped(evt);
+            }
+        });
 
         txtEscale2.setToolTipText("");
         txtEscale2.setPreferredSize(new java.awt.Dimension(185, 24));
+        txtEscale2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEscale2KeyTyped(evt);
+            }
+        });
 
         txtEscale3.setToolTipText("");
         txtEscale3.setPreferredSize(new java.awt.Dimension(185, 24));
+        txtEscale3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEscale3KeyTyped(evt);
+            }
+        });
 
         btnRemoveEscale.setText("-");
         btnRemoveEscale.addActionListener(new java.awt.event.ActionListener() {
@@ -297,10 +312,48 @@ public class MapsII extends javax.swing.JFrame {
         }
         locations.add(depart);
 
+        Location escale1 = null, escale2 = null, escale3 = null;
+        if (txtEscale1.isVisible() && txtEscale1.getText().length() > 0) {
+            escale1 = new Location(txtEscale1.getText());
+        }
+
+        if (txtEscale2.isVisible() && txtEscale2.getText().length() > 0) {
+            escale2 = new Location(txtEscale2.getText());
+        }
+
+        if (txtEscale3.isVisible() && txtEscale3.getText().length() > 0) {
+            escale3 = new Location(txtEscale3.getText());
+        }
+
+        if (escale1 != null) {
+            if (!escale1.isValid()) {
+                txtEscale1.setText("Adresse invalide");
+                return;
+            }
+            locations.add(escale1);
+        }
+
+        if (escale2 != null) {
+            if (!escale2.isValid()) {
+                txtEscale2.setText("Adresse invalide");
+                return;
+            }
+            locations.add(escale2);
+        }
+
+        if (escale3 != null) {
+            if (!escale3.isValid()) {
+                txtEscale3.setText("Adresse invalide");
+                return;
+            }
+            locations.add(escale3);
+        }
+
         if (!destination.isValid()) {
             txtDestination.setText("Adresse invalide");
             return;
         }
+
         locations.add(destination);
 
         close();
@@ -357,9 +410,25 @@ public class MapsII extends javax.swing.JFrame {
         setBtnItineraireEnabled();
     }//GEN-LAST:event_txtDestinationKeyTyped
 
+    private void txtEscale3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEscale3KeyTyped
+        setBtnItineraireEnabled();
+    }//GEN-LAST:event_txtEscale3KeyTyped
+
+    private void txtEscale2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEscale2KeyTyped
+        setBtnItineraireEnabled();
+    }//GEN-LAST:event_txtEscale2KeyTyped
+
+    private void txtEscale1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEscale1KeyTyped
+        setBtnItineraireEnabled();
+    }//GEN-LAST:event_txtEscale1KeyTyped
+
     private void setBtnItineraireEnabled() {
         btnItineraire.setEnabled(
-                txtDepart.getText().length() > 0 && txtDestination.getText().length() > 0
+                txtDepart.getText().length() > 0 &&
+                        txtDestination.getText().length() > 0 &&
+                        (!txtEscale1.isVisible() || txtEscale1.getText().length() > 0) &&
+                        (!txtEscale2.isVisible() || txtEscale2.getText().length() > 0) &&
+                        (!txtEscale3.isVisible() || txtEscale3.getText().length() > 0)
         );
     }
 
