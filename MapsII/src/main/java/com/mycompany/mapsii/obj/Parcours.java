@@ -9,15 +9,7 @@ import java.util.Map;
 // Un parcours contient un ensemble de trajets selon leur moyen de transport
 public class Parcours {
     // Liste de transports possibles
-    private TransportEnum[] transports = {
-        TransportEnum.Bicycle,
-        TransportEnum.Bus,
-        TransportEnum.Car,
-        TransportEnum.Metro,
-        TransportEnum.Taxi,
-        TransportEnum.Walk
-    };
-
+    private TransportEnum[] transports = TransportEnum.values();
     // Les trajets
     private Map<TransportEnum, Trajet> trajets;
 

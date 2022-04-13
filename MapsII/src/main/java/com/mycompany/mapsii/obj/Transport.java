@@ -4,10 +4,12 @@
  */
 package com.mycompany.mapsii.obj;
 
-// La classe abstraite Transport est parent à tous les types de transports
-// Un transport X héritant de Transport écrasera les données des variables
-// de consommation et de vitesse, ainsi que la déclaration des fonctions
-// si le besoin y est.
+/**
+ * La classe abstraite Transport est parent à tous les types de transports
+ * Un transport X héritant de Transport écrasera les données des variables
+ * de consommation et de vitesse, ainsi que la déclaration des fonctions
+ * si le besoin y est.
+ */
 public abstract class Transport {
     protected double consommation;
     protected double speed;
@@ -16,26 +18,51 @@ public abstract class Transport {
 
     }
 
-    public Transport(double consommation, double speed){
+    /**
+     * Le constructeur de Transport
+     * @param consommation Consommation
+     * @param speed Vitesse
+     */
+    public Transport(double consommation, double speed) {
         this.consommation = consommation;
         this.speed = speed;
     }
-    
-    public double getConsommation(){
+
+    /**
+     * Obtenir la consommation du transport
+     * @return Consommation
+     */
+    public double getConsommation() {
         return consommation;
     }
-    
-    public double getSpeed(){
+
+    /**
+     * Permet de retourner la vitesse du transport
+     * @return La vitesse (double)
+     */
+    public double getSpeed() {
         return speed;
     }
 
-    // Retourne le nombre d'essence utilisé * son prix estimé
+    /**
+     * Retourne la quantite d'essence utilisé * son prix estimé
+     * @param distance Distance (double)
+     * @return Prix
+     */
     public double getPrice(double distance) {
         return distance * consommation / 100 * 1.75;
-    };
+    }
 
-    // Retourns le nombre d'essence utilisé * le nombre de CO2 générer en kg par litre
+    ;
+
+    /**
+     * Retourns le nombre d'essence utilisé * le nombre de CO2 générer en kg par litre
+     * @param distance Distance (double)
+     * @return Emission (double)
+     */
     public double getEmission(double distance) {
         return distance * consommation * 2.3;
-    };
+    }
+
+    ;
 }

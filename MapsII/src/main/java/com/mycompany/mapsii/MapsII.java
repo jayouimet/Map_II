@@ -50,6 +50,7 @@ public class MapsII extends javax.swing.JFrame {
         this.btnItineraire.setEnabled(false);
         loadImage();
 
+        /* Permet d'avoir la fenetre de preference en dialogue en ne fermant pas MapsII */
         preferences = new Preferences(this);
         preferences.addWindowListener(new WindowAdapter(){
             @Override
@@ -355,6 +356,10 @@ public class MapsII extends javax.swing.JFrame {
         pi.setVisible(true);
     }//GEN-LAST:event_btnItineraireActionPerformed
 
+    /**
+     * Permet d'ouvrir le dialogue Preference
+     * @param evt Event
+     */
     private void btnConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigActionPerformed
         //close();
         this.setEnabled(false);
