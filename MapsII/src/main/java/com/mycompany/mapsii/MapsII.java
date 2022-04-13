@@ -294,19 +294,26 @@ public class MapsII extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Fonction appelée lors de l'évènement de l'utilisation du bouton d'itinéraire
+     * @param evt
+     */
     private void btnItineraireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItineraireActionPerformed
-
+        // Création des objets départ et destination
         Location depart = new Location(txtDepart.getText());
         Location destination = new Location(txtDestination.getText());
-
+        // La liste de locations
         List<Location> locations = new ArrayList<Location>();
 
+        // Si le départ n'est pas valide, on affiche un message d'erreur,
+        // s'il est valide, on l'ajoute à la liste
         if (!depart.isValid()) {
             txtDepart.setText("Adresse invalide");
             return;
         }
         locations.add(depart);
 
+        // On créé des locations d'escales si on a des entrées pour celles-ci
         Location escale1 = null, escale2 = null, escale3 = null;
         if (txtEscale1.isVisible() && txtEscale1.getText().length() > 0) {
             escale1 = new Location(txtEscale1.getText());
@@ -320,6 +327,8 @@ public class MapsII extends javax.swing.JFrame {
             escale3 = new Location(txtEscale3.getText());
         }
 
+        // Si l'escale1 n'est pas valide, on affiche un message d'erreur,
+        // si elle est valide, on l'ajoute à la liste
         if (escale1 != null) {
             if (!escale1.isValid()) {
                 txtEscale1.setText("Adresse invalide");
@@ -328,6 +337,8 @@ public class MapsII extends javax.swing.JFrame {
             locations.add(escale1);
         }
 
+        // Si l'escale2 n'est pas valide, on affiche un message d'erreur,
+        // si elle est valide, on l'ajoute à la liste
         if (escale2 != null) {
             if (!escale2.isValid()) {
                 txtEscale2.setText("Adresse invalide");
@@ -336,6 +347,8 @@ public class MapsII extends javax.swing.JFrame {
             locations.add(escale2);
         }
 
+        // Si l'escale3 n'est pas valide, on affiche un message d'erreur,
+        // si elle est valide, on l'ajoute à la liste
         if (escale3 != null) {
             if (!escale3.isValid()) {
                 txtEscale3.setText("Adresse invalide");
@@ -344,6 +357,8 @@ public class MapsII extends javax.swing.JFrame {
             locations.add(escale3);
         }
 
+        // Si la destination n'est pas valide, on affiche un message d'erreur,
+        // si elle est valide, on l'ajoute à la liste
         if (!destination.isValid()) {
             txtDestination.setText("Adresse invalide");
             return;
@@ -352,6 +367,7 @@ public class MapsII extends javax.swing.JFrame {
         locations.add(destination);
 
         close();
+        // On appelle l'interface de recommandations en lui passant les locations en paramètre
         Recommandation pi = new Recommandation(depart.getName(), destination.getName(), locations);
         pi.setVisible(true);
     }//GEN-LAST:event_btnItineraireActionPerformed
@@ -403,26 +419,49 @@ public class MapsII extends javax.swing.JFrame {
         jPanel1.repaint();
     }//GEN-LAST:event_btnRemoveEscaleActionPerformed
 
+    /**
+     * Fonction appelée lors de l'évènement de l'entrée d'une touche dans le textBox
+     * @param evt
+     */
     private void txtDepartKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDepartKeyTyped
         setBtnItineraireEnabled();
     }//GEN-LAST:event_txtDepartKeyTyped
 
+    /**
+     * Fonction appelée lors de l'évènement de l'entrée d'une touche dans le textBox
+     * @param evt
+     */
     private void txtDestinationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDestinationKeyTyped
         setBtnItineraireEnabled();
     }//GEN-LAST:event_txtDestinationKeyTyped
 
+    /**
+     * Fonction appelée lors de l'évènement de l'entrée d'une touche dans le textBox
+     * @param evt
+     */
     private void txtEscale3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEscale3KeyTyped
         setBtnItineraireEnabled();
     }//GEN-LAST:event_txtEscale3KeyTyped
 
+    /**
+     * Fonction appelée lors de l'évènement de l'entrée d'une touche dans le textBox
+     * @param evt
+     */
     private void txtEscale2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEscale2KeyTyped
         setBtnItineraireEnabled();
     }//GEN-LAST:event_txtEscale2KeyTyped
 
+    /**
+     * Fonction appelée lors de l'évènement de l'entrée d'une touche dans le textBox
+     * @param evt
+     */
     private void txtEscale1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEscale1KeyTyped
         setBtnItineraireEnabled();
     }//GEN-LAST:event_txtEscale1KeyTyped
 
+    /**
+     * Fonction appelée pour mettre à jour le status du bouton d'itinéraire
+     */
     private void setBtnItineraireEnabled() {
         btnItineraire.setEnabled(
                 txtDepart.getText().length() > 0 &&

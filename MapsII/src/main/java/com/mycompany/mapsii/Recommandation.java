@@ -102,6 +102,7 @@ public class Recommandation extends javax.swing.JFrame {
     private void setSelectedButton(TransportEnum transportEnum) {
         resetButtons();
 
+        // Fonction qui met à jour le style du bouton de véhicule sélectionné
         switch (transportEnum) {
             case Walk -> btnWalk.setBackground(new Color(128, 128, 128));
             case Taxi -> btnTaxi.setBackground(new Color(128, 128, 128));
@@ -112,6 +113,7 @@ public class Recommandation extends javax.swing.JFrame {
         }
     }
 
+    
     private void resetButtons() {
         btnWalk.setBackground(defaultBgColor);
         btnTaxi.setBackground(defaultBgColor);
