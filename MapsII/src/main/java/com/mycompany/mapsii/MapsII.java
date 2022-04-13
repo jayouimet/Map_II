@@ -5,41 +5,26 @@
 package com.mycompany.mapsii;
 
 import com.google.gson.Gson;
-import com.mycompany.mapsii.obj.Engine;
 import com.mycompany.mapsii.obj.Location;
 import com.mycompany.mapsii.obj.Preference;
 
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.*;
-import javax.swing.ImageIcon;
-import java.awt.Dimension;
 
-
-/**
- *
- * @author Andre
- */
 public class MapsII extends javax.swing.JFrame {
     public static String pathToHere = "src/main/java/com/mycompany/mapsii/";
-
     private static String pathImg = pathToHere + "img/";
-    private String selectedDepart = null;
-    private String selectedDestination = null;
-
     private JDialog preferences;
 
     /**
-     * Creates new form MapsII
+     * Le constructeur de MapsII
      */
     public MapsII() {
         initComponents();
