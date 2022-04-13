@@ -99,6 +99,10 @@ public class Recommandation extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Met à jour le style des boutons de véhicule
+     * @param transportEnum Transport sélectionné
+     */
     private void setSelectedButton(TransportEnum transportEnum) {
         resetButtons();
 
@@ -113,7 +117,9 @@ public class Recommandation extends javax.swing.JFrame {
         }
     }
 
-    
+    /**
+     * Réinitialise le style des boutons de véhicules
+     */
     private void resetButtons() {
         btnWalk.setBackground(defaultBgColor);
         btnTaxi.setBackground(defaultBgColor);
@@ -123,6 +129,10 @@ public class Recommandation extends javax.swing.JFrame {
         btnBike.setBackground(defaultBgColor);
     }
 
+    /**
+     * Fonction qui met à jour l'affichage des informations
+     * @param trajet Le trajet duquel on veut afficher les informations
+     */
     public void setAffichage(Trajet trajet){
         txtScore.setText(String.valueOf(trajet.getScore()));
         if(trajet.getScore() >= 75) txtScore.setBackground(new Color(128,255,128));
@@ -135,6 +145,11 @@ public class Recommandation extends javax.swing.JFrame {
         txtEstimatedCosts.setText(String.format("%.2f",trajet.calculatePrice()) + " $");
     }
 
+    /**
+     * Formatte l'heure
+     * @param seconds L'heure en secondes
+     * @return Une chaine de caractères correspondant à la date
+     */
     private String toDateFormat(int seconds) {
         int h, m, s;
 
@@ -410,37 +425,65 @@ public class Recommandation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Fonction appelée lors de l'utilisation du bouton de retour
+     * @param evt
+     */
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         close();
         MapsII pi = new MapsII();
         pi.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_btnReturnActionPerformed
 
+    /**
+     * Fonction appelée lors de l'utilisation du bouton pour ce transport
+     * @param evt
+     */
     private void btnWalkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWalkActionPerformed
         setSelectedButton(TransportEnum.Walk);
         setAffichage(engine.getParcours().getTrajet(TransportEnum.Walk));
     }//GEN-LAST:event_btnWalkActionPerformed
 
+    /**
+     * Fonction appelée lors de l'utilisation du bouton pour ce transport
+     * @param evt
+     */
     private void btnBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusActionPerformed
         setSelectedButton(TransportEnum.Bus);
         setAffichage(engine.getParcours().getTrajet(TransportEnum.Bus));
     }//GEN-LAST:event_btnBusActionPerformed
 
+    /**
+     * Fonction appelée lors de l'utilisation du bouton pour ce transport
+     * @param evt
+     */
     private void btnTaxiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaxiActionPerformed
         setSelectedButton(TransportEnum.Taxi);
         setAffichage(engine.getParcours().getTrajet(TransportEnum.Taxi));
     }//GEN-LAST:event_btnTaxiActionPerformed
 
+    /**
+     * Fonction appelée lors de l'utilisation du bouton pour ce transport
+     * @param evt
+     */
     private void btnCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarActionPerformed
         setSelectedButton(TransportEnum.Car);
         setAffichage(engine.getParcours().getTrajet(TransportEnum.Car));
     }//GEN-LAST:event_btnCarActionPerformed
 
+    /**
+     * Fonction appelée lors de l'utilisation du bouton pour ce transport
+     * @param evt
+     */
     private void btnMetroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetroActionPerformed
         setSelectedButton(TransportEnum.Metro);
         setAffichage(engine.getParcours().getTrajet(TransportEnum.Metro));
     }//GEN-LAST:event_btnMetroActionPerformed
 
+    /**
+     * Fonction appelée lors de l'utilisation du bouton pour ce transport
+     * @param evt
+     */
     private void btnBikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBikeActionPerformed
         setSelectedButton(TransportEnum.Bicycle);
         setAffichage(engine.getParcours().getTrajet(TransportEnum.Bicycle));
