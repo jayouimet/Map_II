@@ -4,6 +4,7 @@
  */
 package com.mycompany.mapsii.obj;
 
+// Un pick-up est une voiture, mais avec une consommation de 20L au 100km
 public class Truck extends Car{
     public Truck(){
         this.consommation = 20;

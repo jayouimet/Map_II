@@ -4,6 +4,7 @@
  */
 package com.mycompany.mapsii.obj;
 
+// Une hybride est une voiture, mais avec une consommation de 6L au 100km
 public class Hybrid extends Car{
     public Hybrid() {
         this.consommation = 6;

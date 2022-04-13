@@ -4,6 +4,8 @@
  */
 package com.mycompany.mapsii.obj;
 
+// La marche ne consomme pas d'essence, donc ne génère aucone pollution,
+// et a une vitesse moyenne de 6km/h
 public class Walk extends Transport{
     public Walk() {
         this.consommation = 0;

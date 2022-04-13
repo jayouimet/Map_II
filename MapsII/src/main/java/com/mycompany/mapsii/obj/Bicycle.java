@@ -4,6 +4,8 @@
  */
 package com.mycompany.mapsii.obj;
 
+// La bicyclette ne consomme pas d'essence, donc ne génère aucone pollution,
+// et a une vitesse moyenne de 20km/h
 public class Bicycle extends Transport {
     public Bicycle() {
         this.consommation = 0;

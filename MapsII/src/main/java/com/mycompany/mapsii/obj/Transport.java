@@ -4,6 +4,10 @@
  */
 package com.mycompany.mapsii.obj;
 
+// La classe abstraite Transport est parent à tous les types de transports
+// Un transport X héritant de Transport écrasera les données des variables
+// de consommation et de vitesse, ainsi que la déclaration des fonctions
+// si le besoin y est.
 public abstract class Transport {
     protected double consommation;
     protected double speed;
@@ -25,10 +29,12 @@ public abstract class Transport {
         return speed;
     }
 
+    // Retourne le nombre d'essence utilisé * son prix estimé
     public double getPrice(double distance) {
         return distance * consommation / 100 * 1.75;
     };
-    
+
+    // Retourns le nombre d'essence utilisé * le nombre de CO2 générer en kg par litre
     public double getEmission(double distance) {
         return distance * consommation * 2.3;
     };

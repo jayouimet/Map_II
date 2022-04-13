@@ -4,6 +4,7 @@
  */
 package com.mycompany.mapsii.obj;
 
+// Une voiture aura toujours une vitesse de 50km/h
 public class Car extends Transport {
     public Car() {
         this.consommation = 9;

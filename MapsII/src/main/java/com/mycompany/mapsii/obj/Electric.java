@@ -4,6 +4,7 @@
  */
 package com.mycompany.mapsii.obj;
 
+// Une électrique est une voiture, mais avec une consommation de 0L au 100km
 public class Electric extends Car{
     public Electric() {
         this.consommation = 0;
