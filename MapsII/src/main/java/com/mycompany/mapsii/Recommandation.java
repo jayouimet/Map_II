@@ -48,6 +48,7 @@ public class Recommandation extends javax.swing.JFrame {
         setSelectedButton(best.getKey());
         setAffichage(best.getValue());
         
+        // Affiche les escales si elles contiennent du texte
         if(locationList.size() > 2) {
             
             txtEscale1.setVisible(true);
@@ -180,7 +181,8 @@ public class Recommandation extends javax.swing.JFrame {
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
-
+    
+    // Charge les images nécessaire pour l'écran lors de l'affichage du menu
     public void loadImage() {
         this.btnReturn.setIcon(new javax.swing.ImageIcon(pathImg + "sideswipe.png"));
         this.lblMap.setIcon(new javax.swing.ImageIcon(pathImg + "Map1.png"));

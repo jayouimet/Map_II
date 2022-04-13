@@ -81,10 +81,9 @@ public class MapsII extends javax.swing.JFrame {
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
 
-
+    // Charge les images nécessaire pour l'écran lors de l'affichage du menu
     public void loadImage() {
         this.btnConfig.setIcon(new ImageIcon(pathImg + "Roue.png"));
-        //this.lblMap.setIcon(new ImageIcon(pathImg + "Map1.png"));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -362,6 +361,7 @@ public class MapsII extends javax.swing.JFrame {
         preferences.setVisible(true);
     }//GEN-LAST:event_btnConfigActionPerformed
 
+    // Fonction appeler par le bouton "+" pour ajouter une escale, jusqu'à 3 escales 
     private void btnAddEscaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEscaleActionPerformed
 
         if(!txtEscale1.isVisible()) {
@@ -378,6 +378,7 @@ public class MapsII extends javax.swing.JFrame {
         jPanel1.repaint();
     }//GEN-LAST:event_btnAddEscaleActionPerformed
 
+    // Fonction appeler par le bouton "-" pour enlever/caché une escale et effacer leurs contenues
     private void btnRemoveEscaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveEscaleActionPerformed
         if(txtEscale3.isVisible()) {
             this.txtEscale3.setVisible(false);
