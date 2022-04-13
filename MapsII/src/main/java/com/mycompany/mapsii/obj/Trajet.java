@@ -6,13 +6,21 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+// Le trajet pour un certain véhicule
 public class Trajet {
+    // La liste de sections dans le trajet
     private List<Section> sections;
+    // Le score du trajet
     private double score;
 
+    /**
+     * Constructeur du trajet
+     * @param locations La liste de locations
+     * @param transport Le transport utilisé
+     */
     public Trajet (List<Location> locations, TransportEnum transport) {
         if (locations.size() == 0) return;
-
+        // Création des sections à partir des locations
         Location previousLoc = locations.get(0);
 
         sections = new ArrayList<Section>();
@@ -22,9 +30,14 @@ public class Trajet {
         }
     }
 
+    /**
+     * Calculs le prix du trajet
+     * @return Retourne le prix en dollars
+     */
     public double calculatePrice() {
         double price = 0;
 
+        // Pour chaque section on additione le prix
         for (Section s: sections) {
             price += s.getPrice();
         }
@@ -32,9 +45,14 @@ public class Trajet {
         return price;
     }
 
+    /**
+     * Calculs l'émission de carbone du trajet
+     * @return Retourne l'émission en kg de CO2
+     */
     public double calculateCarbonEmission() {
         double carbonEmission = 0;
 
+        // Pour chaque section on additione l'émission
         for (Section s: sections) {
             carbonEmission += s.getCarbonEmission();
         }
@@ -42,9 +60,14 @@ public class Trajet {
         return carbonEmission;
     }
 
+    /**
+     * Calculs la durée du trajet
+     * @return Retourne la durée du trajet en secondes
+     */
     public int calculateDuration() {
         int duration = 0;
 
+        // Pour chaque section on additione la durée
         for (Section s: sections) {
             duration += s.getDuration();
         }
@@ -95,9 +118,14 @@ public class Trajet {
      */
     public void setScore(double s){score = s;}
 
+    /**
+     * Getter de la distance
+     * @return Retourne la distance du trajet en km
+     */
     public double getDistance() {
         double dist = 0;
 
+        // Pour chaque section on additione la distance
         for (Section s: sections) {
             dist += s.getDistance();
         }
