@@ -13,10 +13,6 @@ import java.awt.event.WindowEvent;
 import java.util.*;
 import java.util.List;
 
-/**
- *
- * @author Jeremie
- */
 public class Recommandation extends javax.swing.JFrame {
     private Engine engine;
     private static String pathImg = "src/main/java/com/mycompany/mapsii/img/";
@@ -66,24 +62,35 @@ public class Recommandation extends javax.swing.JFrame {
         
     }
 
+    /**
+     * Cette fonction permet d'initier le score de tous les vehicules
+     */
     private void initScores(){
+        // Quantite de trajet
         int N = engine.getParcours().getTrajets().size();
         double maxScore = 0;
         double avg = 0;
         double standardDev = 0;
         double score;
 
+        /* Pour faire simple, on calcul le score de chacun.
+        *  Ensuite, on prend ces scores et on les transforme en z-score pour ensuite utiliser une distribution normal
+        *  pour distribuer les scores de facon equitable. */
+
+        // Pour utiliser la distribution normale, il faut calculer la moyenne :
         for(Map.Entry<TransportEnum,Trajet> t : engine.getParcours().getTrajets().entrySet()){
             score = t.getValue().calculateScore();
             avg += score/N;
             if(maxScore < score) maxScore = score;
         }
 
+        // L'ecart-type :
         for(Map.Entry<TransportEnum,Trajet> t : engine.getParcours().getTrajets().entrySet()){
             standardDev += Math.pow(t.getValue().getScore() - avg,2) / N;
         }
         standardDev = Math.sqrt(standardDev);
 
+        // Pour ensuite recevoir un score entre 0 et 1 (pourcentage)
         double percentage;
         NormalDistribution nd = new NormalDistribution(avg, standardDev);
         for(Map.Entry<TransportEnum,Trajet> t : engine.getParcours().getTrajets().entrySet()){
@@ -136,45 +143,6 @@ public class Recommandation extends javax.swing.JFrame {
         s = seconds;
 
         return h + ":" + (m < 10 ? ("0" + m) : m) + ":" + (s < 10 ? ("0" + s) : s);
-    }
-
-     public Location createLocation(String nom){
-        Location location = new Location("",0,0);
-        switch(nom){
-            case "Maison":
-                location = new Location("Maison",0,0);
-                break;
-            case "Bibliothèque":
-                location = new Location("Bibliothèque",1,1);
-                break;
-            case "Université":
-                location = new Location("Université",25,25);
-                break;
-            case "Travail":
-                location = new Location("Travail",30,23);
-                break;
-            case "Cinéma":
-                location = new Location("Cinéma",20,2);
-                break;
-            case "Aéroport":
-                location = new Location("Aéroport",25,-25);
-                break;
-            case "Dépanneur":
-                location = new Location("Dépanneur",0,-1);
-                break;
-            case "Gare":
-                location = new Location("Gare",-2,-2);
-                break;
-            case "Costco":
-                location = new Location("Costco",-5,-10);
-                break;
-            case "Chalet des Érables":
-                location = new Location("Chalet des Érables",13,10);
-                break;
-            default:
-                break;
-        }
-        return location;
     }
     
     public void close(){

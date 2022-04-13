@@ -11,17 +11,14 @@ import com.mycompany.mapsii.obj.Preference;
 
 import javax.swing.*;
 import java.awt.Toolkit;
-import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.Objects;
 
-/**
- * @author Francis
- */
 public class Preferences extends javax.swing.JDialog {
+    // Reference au parent, MapsII
     private MapsII parent;
     /**
      * Creates new form Preferences
@@ -266,16 +263,27 @@ public class Preferences extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_radioDurationActionPerformed
 
+    /**
+     * Permet de quitter le dialogue Preferences
+     */
     private void quitDialog(){
         dispose();
         parent.setEnabled(true);
         parent.setVisible(true);
     }
 
+    /**
+     * Quand le bouton Cancel est appuyer, juste fermer le dialogue Preferences
+     * @param evt Event
+     */
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         quitDialog();
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    /**
+     * Permet de sauvegarder les preferences dans le fichier config.json en appuyant sur le bouton sauvegarder
+     * @param evt Event
+     */
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // Save Fields
         savePreferences();
@@ -293,6 +301,9 @@ public class Preferences extends javax.swing.JDialog {
         quitDialog();        // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    /**
+     * Cette fonction prend les preferences de l'utilisateur et les sauvegarde dans un objet Preference
+     */
     private void savePreferences() {
         // Save the most important variable
         for (Enumeration<AbstractButton> buttons = grpVariables.getElements(); buttons.hasMoreElements(); ) {
