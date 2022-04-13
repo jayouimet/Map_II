@@ -52,30 +52,47 @@ public class Trajet {
         return duration;
     }
 
+    /**
+     * Permet de calculer le score individuel du trajet.
+     * @return Le score
+     */
     public double calculateScore() {
+        // Initialisation des variables, normalement a 1.
         VariableEnum v = Preference.getInstance().getImportantVariable();
         double generalScore = 0;
         float multEmission = 1f;
         float multDuration = 1f;
         float multCost = 1f;
 
+        // Change le multiplicateur de la variable dominante choisi en preference
         switch (v){
             case Emission -> multEmission = 2f;
             case Duration -> multDuration = 3f;
             case Cost -> multCost = 2f;
         }
 
+        // Pour chaque variable, il y a un maximum de 100 score (avec mult 1) pouvant etre obtenu.
         for(Section s : sections){
             generalScore += (multEmission * 100 / (s.getCarbonEmission() / (100*s.getDistance()) + 1f));
             generalScore += (multDuration * 100 / (s.getDuration() / (200*s.getDistance()) + 1f));
             generalScore += (multCost * 100 / (s.getPrice() * 10/(30 + s.getDistance()) + 1f));
         }
 
+        // Retourne le score
         score = generalScore;
         return generalScore;
     }
 
+    /**
+     * Retourne le score
+     * @return Score (int)
+     */
     public double getScore(){return score;}
+
+    /**
+     * Permet de changer le score
+     * @param s int Score
+     */
     public void setScore(double s){score = s;}
 
     public double getDistance() {
