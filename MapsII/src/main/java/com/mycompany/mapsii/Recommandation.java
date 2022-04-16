@@ -167,7 +167,9 @@ public class Recommandation extends javax.swing.JFrame {
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
     
-    // Charge les images nécessaire pour l'écran lors de l'affichage du menu
+    /** 
+     * Charge les images nécessaire pour l'écran lors de l'affichage du menu
+     */
     public void loadImage() {
         this.btnReturn.setIcon(new javax.swing.ImageIcon(pathImg + "sideswipe.png"));
         this.lblMap.setIcon(new javax.swing.ImageIcon(pathImg + "Map1.png"));
