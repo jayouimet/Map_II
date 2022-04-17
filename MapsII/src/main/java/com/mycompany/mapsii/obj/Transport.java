@@ -1,3 +1,7 @@
+// BUT :        Projet synthèse : Créer une application pour optimiser la qualité du réseau des transports.
+// AUTEURS :    André Pinel, Jérémie Ouimet, William Goulet et Francis Painchaud
+// DATE :       17 avril 2022
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -45,7 +49,7 @@ public abstract class Transport {
     }
 
     /**
-     * Retourne la quantite d'essence utilisé * son prix estimé
+     * Retourne la quantité d'essence utilisée multipliée par son prix estimé
      * @param distance Distance (double)
      * @return Prix
      */
@@ -56,7 +60,7 @@ public abstract class Transport {
     ;
 
     /**
-     * Retourns le nombre d'essence utilisé * le nombre de CO2 générer en kg par litre
+     * Retourne la quantité d'essence utilisée multipliée par la quantité de CO2 généré en kg par litre
      * @param distance Distance (double)
      * @return Emission (double)
      */

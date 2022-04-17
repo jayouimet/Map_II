@@ -1,3 +1,7 @@
+// BUT :        Projet synthèse : Créer une application pour optimiser la qualité du réseau des transports.
+// AUTEURS :    André Pinel, Jérémie Ouimet, William Goulet et Francis Painchaud
+// DATE :       17 avril 2022
+
 package com.mycompany.mapsii.obj;
 
 import com.mycompany.mapsii.obj.Enums.TransportEnum;
@@ -26,7 +30,7 @@ public class Parcours {
     }
 
     /**
-     * Rettourne le trajet lié au trasnsport recherché
+     * Retourne le trajet lié au transport recherché
      * @param transport Le transport recherché
      * @return Le trajet retourné
      */
@@ -44,7 +48,7 @@ public class Parcours {
 
     /**
      * Retourne le trajet ayant le meilleur score
-     * @return Une pair contennant le trajet recommandé et son moyen de transport
+     * @return Une pair contenant le trajet recommandé et son moyen de transport
      */
     public Map.Entry<TransportEnum, Trajet> getBest() {
         Map.Entry<TransportEnum, Trajet> bestTrajet = null;

@@ -1,3 +1,7 @@
+// BUT :        Projet synthèse : Créer une application pour optimiser la qualité du réseau des transports.
+// AUTEURS :    André Pinel, Jérémie Ouimet, William Goulet et Francis Painchaud
+// DATE :       17 avril 2022
+
 package com.mycompany.mapsii.obj;
 
 import com.mycompany.mapsii.obj.Enums.CarEnum;
@@ -8,7 +12,7 @@ import com.mycompany.mapsii.obj.Enums.TransportEnum;
 public class Section {
     // La longueur de la section
     private double distance;
-    // Le transport utilisé (Permet la possibilité d'implémenter des trajet avec plusieurs véhicule)
+    // Le transport utilisé (Permet la possibilité d'implémenter des trajets avec plusieurs véhicule)
     private Transport transport;
 
     /**
@@ -18,7 +22,7 @@ public class Section {
      */
     public Section(double d, TransportEnum t) {
         distance = d;
-        // Instancie le transport dépendemment de l'enum transport passé en paramètre
+        // Instancie le transport dépendamment de l'enum transport passé en paramètre
         switch (t) {
             case Bicycle:
                 transport = new Bicycle();
@@ -33,7 +37,7 @@ public class Section {
                 transport = new Taxi();
                 break;
             case Car:
-                // Instancie le transport dépendemment des préférences
+                // Instancie le transport dépendamment des préférences
                 Preference pref = Preference.getInstance();
                 switch(pref.getCarType()) {
                     case Electric:
@@ -57,7 +61,7 @@ public class Section {
     }
 
     /**
-     * Getter de distance
+     * Getter de l'attribut distance
      * @return Retourne la longueur de la section en km
      */
     public double getDistance() {
@@ -65,7 +69,7 @@ public class Section {
     }
 
     /**
-     * Getter de duration
+     * Getter de l'attribut duration
      * @return Retourne la durée du trajet en secondes
      */
     public double getDuration() {
@@ -73,7 +77,7 @@ public class Section {
     }
 
     /**
-     * Getter du prix
+     * Getter de l'attribut prix
      * @return Retourne le coût de la section en $
      */
     public double getPrice() {

@@ -1,3 +1,8 @@
+// BUT :        Projet synthèse : Créer une application pour optimiser la qualité du réseau des transports.
+// AUTEURS :    André Pinel, Jérémie Ouimet, William Goulet et Francis Painchaud
+// DATE :       17 avril 2022
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -18,6 +23,9 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/** 
+ * Classe principale qui hérite de la classe JFrame
+ */
 public class MapsII extends javax.swing.JFrame {
     public static String pathToHere = "src/main/java/com/mycompany/mapsii/";
     private static String pathImg = pathToHere + "img/";
@@ -35,7 +43,7 @@ public class MapsII extends javax.swing.JFrame {
         this.btnItineraire.setEnabled(false);
         loadImage();
 
-        /* Permet d'avoir la fenetre de preference en dialogue en ne fermant pas MapsII */
+        /* Permet d'avoir la fenêtre de préférence en dialogue tout en ne fermant pas MapsII */
         preferences = new Preferences(this);
         preferences.addWindowListener(new WindowAdapter(){
             @Override
@@ -61,14 +69,17 @@ public class MapsII extends javax.swing.JFrame {
 
         return null;
     }
-
+    
+    /**
+     * La fonction close permet la transition entre les différentes fenêtres de l'application sans qu'elle se ferme complètement. 
+     */
      public void close(){
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
 
     /**
-     * Charge les images nécessaire pour l'écran lors de l'affichage du menu
+     * Charge les images nécessaires pour l'écran lors de l'affichage du menu
      */
     public void loadImage() {
         this.btnConfig.setIcon(new ImageIcon(pathImg + "Roue.png"));
@@ -112,9 +123,9 @@ public class MapsII extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Depart");
+        jLabel2.setText("Adresse de départ");
 
-        jLabel3.setText("Destination");
+        jLabel3.setText("Adresse de destination");
 
         txtEscale1.setToolTipText("");
         txtEscale1.setMinimumSize(new java.awt.Dimension(185, 22));
@@ -255,15 +266,18 @@ public class MapsII extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAddEscale)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRemoveEscale))
-                    .addComponent(btnItineraire, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnItineraire, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnAddEscale)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRemoveEscale)))))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -453,7 +467,7 @@ public class MapsII extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEscale1KeyTyped
 
     /**
-     * Fonction appelée pour mettre à jour le status du bouton d'itinéraire
+     * Fonction appelée pour mettre à jour le statut du bouton d'itinéraire
      */
     private void setBtnItineraireEnabled() {
         btnItineraire.setEnabled(

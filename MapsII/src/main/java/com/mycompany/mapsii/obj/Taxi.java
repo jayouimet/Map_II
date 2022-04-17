@@ -1,3 +1,7 @@
+// BUT :        Projet synthèse : Créer une application pour optimiser la qualité du réseau des transports.
+// AUTEURS :    André Pinel, Jérémie Ouimet, William Goulet et Francis Painchaud
+// DATE :       17 avril 2022
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -12,7 +16,7 @@ public class Taxi extends Transport {
         this.speed = 50;
     }
 
-    // Le prix du taxi est calculer par un cout de base de 3.45$ et
+    // Le prix du taxi est calculé par un coût de base de 3.45$ et
     // un ajout de 1.70$ par km
     @Override
     public double getPrice(double distance) {

@@ -1,15 +1,19 @@
+// BUT :        Projet synthèse : Créer une application pour optimiser la qualité du réseau des transports.
+// AUTEURS :    André Pinel, Jérémie Ouimet, William Goulet et Francis Painchaud
+// DATE :       17 avril 2022
+
 package com.mycompany.mapsii.obj;
 
 import com.mycompany.mapsii.obj.Enums.CarEnum;
 import com.mycompany.mapsii.obj.Enums.VariableEnum;
 
 /**
- * La class Preference permet de savoir les preferences de l'utilisateur.
- * Cette classe est un singleton puisque de toute maniere, il peut juste avoir 1 preference par instance de l'application.
+ * La classe Preference permet de savoir les préférences de l'utilisateur.
+ * Cette classe est un singleton puisque de toute manière, il peut juste avoir une préférence par instance de l'application.
  */
 public class Preference {
     /**
-     * Les variables pour sauvegarder la preference
+     * Les variables pour sauvegarder la préférence
      */
     private static String[] mesuresDistance = {"KM", "Miles"};
     private static String[] couleursFond = {"Gray", "White"};
@@ -28,7 +32,7 @@ public class Preference {
     private Preference(){}
 
     /**
-     * Pour modifier la preference
+     * Pour modifier la préférence
      * @param p Object Preference
      */
     public static void setInstance(Preference p){
@@ -46,7 +50,7 @@ public class Preference {
     }
 
     /**
-     * Permet de retourner un enum au lieu d'une string (CarType)
+     * Permet de retourner un enum au lieu d'un string (CarType)
      * @return CarType
      */
     public CarEnum getCarType(){
@@ -54,7 +58,7 @@ public class Preference {
     }
 
     /**
-     * Permet d'obtenir un enum au lieu d'une string (VariableImportante)
+     * Permet d'obtenir un enum au lieu d'un string (VariableImportante)
      * @return VariableEnum
      */
     public VariableEnum getImportantVariable(){

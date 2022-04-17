@@ -1,3 +1,7 @@
+// BUT :        Projet synthèse : Créer une application pour optimiser la qualité du réseau des transports.
+// AUTEURS :    André Pinel, Jérémie Ouimet, William Goulet et Francis Painchaud
+// DATE :       17 avril 2022
+
 package com.mycompany.mapsii.obj;
 
 import com.mycompany.mapsii.obj.Enums.TransportEnum;
@@ -37,7 +41,7 @@ public class Trajet {
     public double calculatePrice() {
         double price = 0;
 
-        // Pour chaque section on additione le prix
+        // Pour chaque section, on additionne le prix
         for (Section s: sections) {
             price += s.getPrice();
         }
@@ -52,7 +56,7 @@ public class Trajet {
     public double calculateCarbonEmission() {
         double carbonEmission = 0;
 
-        // Pour chaque section on additione l'émission
+        // Pour chaque section, on additionne l'émission
         for (Section s: sections) {
             carbonEmission += s.getCarbonEmission();
         }
@@ -67,7 +71,7 @@ public class Trajet {
     public int calculateDuration() {
         int duration = 0;
 
-        // Pour chaque section on additione la durée
+        // Pour chaque section, on additionne la durée
         for (Section s: sections) {
             duration += s.getDuration();
         }
@@ -87,14 +91,14 @@ public class Trajet {
         float multDuration = 1f;
         float multCost = 1f;
 
-        // Change le multiplicateur de la variable dominante choisi en preference
+        // Change le multiplicateur de la variable dominante choisi en préférence
         switch (v){
             case Emission -> multEmission = 2f;
             case Duration -> multDuration = 3f;
             case Cost -> multCost = 2f;
         }
 
-        // Pour chaque variable, il y a un maximum de 100 score (avec mult 1) pouvant etre obtenu.
+        // Pour chaque variable, il y a un score maximum de 100 (avec mult 1) pouvant être obtenu.
         for(Section s : sections){
             generalScore += (multEmission * 100 / (s.getCarbonEmission() / (100*s.getDistance()) + 1f));
             generalScore += (multDuration * 100 / (s.getDuration() / (200*s.getDistance()) + 1f));
@@ -125,7 +129,7 @@ public class Trajet {
     public double getDistance() {
         double dist = 0;
 
-        // Pour chaque section on additione la distance
+        // Pour chaque section, on additionne la distance
         for (Section s: sections) {
             dist += s.getDistance();
         }

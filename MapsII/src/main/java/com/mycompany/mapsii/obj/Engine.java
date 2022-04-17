@@ -1,17 +1,21 @@
+// BUT :        Projet synthèse : Créer une application pour optimiser la qualité du réseau des transports.
+// AUTEURS :    André Pinel, Jérémie Ouimet, William Goulet et Francis Painchaud
+// DATE :       17 avril 2022
+
 package com.mycompany.mapsii.obj;
 
 import java.util.ArrayList;
 import java.util.List;
 
-// La classe engine est le conteneur de l'engin de calcul de trajets.
+// La classe Engine est le conteneur de l'engin de calcul de trajets.
 // Elle est obsolète vu notre implémentation partielle de Google Maps,
-// mais aurait été nécessaire dans une implémentation complète dans le futur
+// mais elle aurait été nécessaire dans une implémentation complète dans le futur
 public class Engine {
-    // On objet parcours qui contient un ensemble de trajets par véhicule
+    // Un objet parcours qui contient un ensemble de trajets par véhicule
     private Parcours parcours;
 
     /**
-     * Constructeur de la classe engin, prend une liste de locations comme paramètre
+     * Constructeur de la classe engin qui prend une liste de locations comme paramètre
      * @param locations
      */
     public Engine(List<Location> locations) {

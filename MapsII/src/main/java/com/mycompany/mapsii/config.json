@@ -1,6 +1,6 @@
 {
   "variableDominante": "Duration",
-  "mesureDistance": 0,
-  "typeVoiture": "Truck",
-  "couleurFond": 0
+  "mesureDistance": 1,
+  "typeVoiture": "Hybrid",
+  "couleurFond": 1
 }

@@ -1,3 +1,7 @@
+// BUT :        Projet synthèse : Créer une application pour optimiser la qualité du réseau des transports.
+// AUTEURS :    André Pinel, Jérémie Ouimet, William Goulet et Francis Painchaud
+// DATE :       17 avril 2022
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -13,11 +17,17 @@ import java.awt.event.WindowEvent;
 import java.util.*;
 import java.util.List;
 
+/** 
+ * Classe Recommandation qui hérite de la classe JFrame
+ */
 public class Recommandation extends javax.swing.JFrame {
     private Engine engine;
     private static String pathImg = "src/main/java/com/mycompany/mapsii/img/";
     private Color defaultBgColor;
 
+    /** 
+    * Constructeur par défaut de la classe Recommandation
+    */
     public Recommandation() {
         initComponents();
         this.setResizable(false);
@@ -25,11 +35,16 @@ public class Recommandation extends javax.swing.JFrame {
         loadImage();
     }
 
+    /** 
+    * Constructeur paramétré de la classe Recommandation
+    */
     public Recommandation(String depart, String destination, List<Location> locationList) {
         initComponents();
         this.setResizable(false);
         this.setTitle("Maps II Recommandations");
         this.engine = new Engine(locationList);
+        
+        // On affiche les données à l'écran: adresse de départ et de destination. 
         txtDepart.setText(depart);
         txtDestination.setText(destination);
         txtDepart.setEditable(false);
@@ -63,10 +78,10 @@ public class Recommandation extends javax.swing.JFrame {
     }
 
     /**
-     * Cette fonction permet d'initier le score de tous les vehicules
+     * Cette fonction permet d'initialiser le score de tous les véhicules
      */
     private void initScores(){
-        // Quantite de trajet
+        // Quantité de trajets
         int N = engine.getParcours().getTrajets().size();
         double maxScore = 0;
         double avg = 0;
@@ -74,8 +89,8 @@ public class Recommandation extends javax.swing.JFrame {
         double score;
 
         /* Pour faire simple, on calcul le score de chacun.
-        *  Ensuite, on prend ces scores et on les transforme en z-score pour ensuite utiliser une distribution normal
-        *  pour distribuer les scores de facon equitable. */
+        *  Ensuite, on prend ces scores et on les transforme en z-score pour ensuite utiliser une distribution normale
+        *  pour distribuer les scores de façon équitable. */
 
         // Pour utiliser la distribution normale, il faut calculer la moyenne :
         for(Map.Entry<TransportEnum,Trajet> t : engine.getParcours().getTrajets().entrySet()){
@@ -84,7 +99,7 @@ public class Recommandation extends javax.swing.JFrame {
             if(maxScore < score) maxScore = score;
         }
 
-        // L'ecart-type :
+        // L'écart-type :
         for(Map.Entry<TransportEnum,Trajet> t : engine.getParcours().getTrajets().entrySet()){
             standardDev += Math.pow(t.getValue().getScore() - avg,2) / N;
         }
@@ -100,7 +115,7 @@ public class Recommandation extends javax.swing.JFrame {
     }
 
     /**
-     * Met à jour le style des boutons de véhicule
+     * Mets à jour le style des boutons de véhicule
      * @param transportEnum Transport sélectionné
      */
     private void setSelectedButton(TransportEnum transportEnum) {
@@ -146,7 +161,7 @@ public class Recommandation extends javax.swing.JFrame {
     }
 
     /**
-     * Formatte l'heure
+     * Formate l'heure
      * @param seconds L'heure en secondes
      * @return Une chaine de caractères correspondant à la date
      */
@@ -162,13 +177,16 @@ public class Recommandation extends javax.swing.JFrame {
         return h + ":" + (m < 10 ? ("0" + m) : m) + ":" + (s < 10 ? ("0" + s) : s);
     }
     
+    /**
+     * La fonction close permet la transition entre les différentes fenêtres de l'application sans qu'elle se ferme complètement. 
+    */
     public void close(){
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
     
     /** 
-     * Charge les images nécessaire pour l'écran lors de l'affichage du menu
+     * Charge les images nécessaires pour l'écran lors de l'affichage du menu
      */
     public void loadImage() {
         this.btnReturn.setIcon(new javax.swing.ImageIcon(pathImg + "sideswipe.png"));

@@ -1,3 +1,7 @@
+// BUT :        Projet synthèse : Créer une application pour optimiser la qualité du réseau des transports.
+// AUTEURS :    André Pinel, Jérémie Ouimet, William Goulet et Francis Painchaud
+// DATE :       17 avril 2022
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -21,7 +25,7 @@ public class Location {
      */
     public Location(String address) {
         // Initialisation du context de l'API de Google Maps
-        // Ici on a ma clée d'api Google Maps. Comme je suis chargé par appel à l'API (avec crédit sur les 20000 premiers appels, je vais désactiver cette clé une fois le travail évalué)
+        // Ici, on a ma clé d'api Google Maps. Comme je suis chargé par appel à l'API (avec crédit sur les 20000 premiers appels, je vais désactiver cette clé une fois le travail évalué)
         GeoApiContext context = new GeoApiContext().setApiKey("AIzaSyBWWBZVYdKruimvJIkHMcJbG0QSTkWXHDk");
         try {
             // Requête à l'API

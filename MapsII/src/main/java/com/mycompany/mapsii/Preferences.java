@@ -1,3 +1,7 @@
+// BUT :        Projet synthèse : Créer une application pour optimiser la qualité du réseau des transports.
+// AUTEURS :    André Pinel, Jérémie Ouimet, William Goulet et Francis Painchaud
+// DATE :       17 avril 2022
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -17,8 +21,11 @@ import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.Objects;
 
+/** 
+ * Classe Preferences qui hérite de la classe JFrame
+ */
 public class Preferences extends javax.swing.JDialog {
-    // Reference au parent, MapsII
+    // Référence au parent, MapsII
     private MapsII parent;
     /**
      * Creates new form Preferences
@@ -93,7 +100,10 @@ public class Preferences extends javax.swing.JDialog {
             cboCarType.setSelectedIndex(0);
         }
     }
-
+    
+    /**
+     * La fonction close permet la transition entre les différentes fenêtres de l'application sans qu'elle se ferme complètement. 
+     */
     public void close() {
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
@@ -264,7 +274,7 @@ public class Preferences extends javax.swing.JDialog {
     }//GEN-LAST:event_radioDurationActionPerformed
 
     /**
-     * Permet de quitter le dialogue Preferences
+     * Permets de quitter le dialogue Preferences
      */
     private void quitDialog(){
         dispose();
@@ -273,7 +283,7 @@ public class Preferences extends javax.swing.JDialog {
     }
 
     /**
-     * Quand le bouton Cancel est appuyer, juste fermer le dialogue Preferences
+     * Cette fonction ferme le dialogue Preference lorsque l'on appuie sur le bouton Cancel.
      * @param evt Event
      */
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -281,7 +291,7 @@ public class Preferences extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
-     * Permet de sauvegarder les preferences dans le fichier config.json en appuyant sur le bouton sauvegarder
+     * Permets de sauvegarder les préférences dans le fichier config.json en appuyant sur le bouton sauvegarder
      * @param evt Event
      */
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -302,7 +312,7 @@ public class Preferences extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
-     * Cette fonction prend les preferences de l'utilisateur et les sauvegarde dans un objet Preference
+     * Cette fonction prend les préférences de l'utilisateur et les sauvegarde dans un objet Preference
      */
     private void savePreferences() {
         // Save the most important variable
